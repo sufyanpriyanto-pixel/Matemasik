@@ -24,15 +24,15 @@
                 },
                 colors: {
                     brand: {
-                        darkBg: '#0b1017',
-                        cardBg: '#141e2d',
-                        cardInner: '#1c293d',
                         blue: '#00a8e8',
                         cyan: '#3a86ff',
+                        lightCyan: '#eef7ff',
                         orange: '#ff9f1c',
                         yellow: '#ffbf00',
                         pink: '#ff70a6',
-                        green: '#2ec4b6'
+                        lightPink: '#fff0f5',
+                        green: '#2ec4b6',
+                        softGreen: '#e6fffa'
                     }
                 }
             }
@@ -47,58 +47,35 @@
         width: 100%;
         min-height: 100vh;
         font-family: 'Fredoka', 'Nunito', sans-serif;
-        background-color: #0b1017;
-        color: #f8fafc;
+        background: linear-gradient(135deg, #fffde7 0%, #fff3e0 40%, #fce4ec 100%);
+        color: #1e293b;
         user-select: none;
         overflow-x: hidden;
     }
 
     .bg-math-pattern {
-        background-image: radial-gradient(#00a8e8 0.75px, transparent 0.75px), radial-gradient(#ff70a6 0.75px, #0b1017 0.75px);
+        background-image: radial-gradient(#3a86ff 0.75px, transparent 0.75px), radial-gradient(#ff70a6 0.75px, #fffde7 0.75px);
         background-size: 30px 30px;
         background-position: 0 0, 15px 15px;
-        opacity: 0.08;
+        opacity: 0.15;
     }
 
-    .dashed-border-amber { border: 2.5px dashed #d97706; }
+    .dashed-border-amber { border: 2.5px dashed #f59e0b; }
     .dashed-border-pink { border: 3px dashed #f43f5e; }
-    .dashed-border-cyan { border: 2px dashed #00a8e8; }
+    .dashed-border-cyan { border: 2px dashed #38bdf8; }
 
     .numpad-key:active { transform: scale(0.93); }
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: #00a8e8; border-radius: 10px; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
 
     .modal-backdrop {
-        background-color: rgba(5, 9, 15, 0.85);
-        backdrop-filter: blur(6px);
+        background-color: rgba(15, 23, 42, 0.55);
+        backdrop-filter: blur(4px);
     }
 
-    /* RESPONSIVE WEB DESIGN (RWD) - PERCENTAGE % BASIS FOR FLUID SIZING */
-    @media (max-width: 639px) {
-        body {
-            background-color: #141e2d !important;
-            padding: 0 !important;
-        }
-        main.app-rwd-container {
-            border: none !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            min-height: 100vh !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 !important;
-            padding: 4% 4% 12% 4% !important;
-        }
-        .modal-backdrop > div {
-            margin: 2% !important;
-            width: 96% !important;
-            max-height: 94vh !important;
-            border-radius: 1.25rem !important;
-        }
-    }
-
+    /* SVG & Graphic Animations */
     @keyframes logoFloat {
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-7px); }
@@ -209,36 +186,36 @@
 
 
 <!-- Toast Notifications Container -->
-<div id="toast-container" class="fixed top-[2%] right-[2%] z-50 flex flex-col space-y-2 pointer-events-none"></div>
+<div id="toast-container" class="fixed top-3 right-3 z-50 flex flex-col space-y-2 pointer-events-none"></div>
 
 <!-- Floating Background Decor -->
 <div class="fixed inset-0 bg-math-pattern pointer-events-none -z-10"></div>
-<div class="fixed top-[5%] left-[2%] text-sky-500 text-2xl font-bold pointer-events-none select-none opacity-20 hidden sm:block">➕</div>
-<div class="fixed bottom-[8%] left-[3%] text-pink-500 text-3xl font-bold pointer-events-none select-none opacity-20 hidden sm:block">✖️</div>
-<div class="fixed top-[10%] right-[3%] text-amber-500 text-2xl font-bold pointer-events-none select-none opacity-20 hidden sm:block">➗</div>
-<div class="fixed bottom-[12%] right-[4%] text-indigo-500 text-3xl font-bold pointer-events-none select-none opacity-20 hidden sm:block">➖</div>
+<div class="fixed top-12 left-10 text-sky-300 text-3xl font-bold pointer-events-none select-none opacity-60 hidden sm:block">➕</div>
+<div class="fixed bottom-20 left-12 text-pink-300 text-4xl font-bold pointer-events-none select-none opacity-60 hidden sm:block">✖️</div>
+<div class="fixed top-24 right-12 text-amber-300 text-3xl font-bold pointer-events-none select-none opacity-60 hidden sm:block">➗</div>
+<div class="fixed bottom-28 right-16 text-indigo-300 text-4xl font-bold pointer-events-none select-none opacity-60 hidden sm:block">➖</div>
 
-<!-- MAIN APP CONTAINER (PERCENTAGE BASIS FLUID RWD LAYOUT) -->
-<main class="app-rwd-container w-[96%] sm:w-[88%] md:w-[75%] lg:w-[60%] xl:w-[50%] mx-auto bg-[#141e2d] sm:border-4 sm:border-sky-500/60 sm:rounded-[36px] sm:shadow-2xl p-[4%] sm:p-[5%] relative sm:my-[2%]">
+<!-- MAIN APP CONTAINER (RESPONSIVE MOBILE LIGHT CONTAINER) -->
+<main class="max-w-2xl mx-auto bg-white rounded-[28px] sm:rounded-[32px] border-4 border-sky-200 shadow-2xl p-4 sm:p-8 relative my-1 sm:my-6">
 
     <!-- TOP HEADER BAR -->
-    <div id="top-header-bar" class="flex flex-wrap items-center justify-between gap-[2%] mb-[4%] sm:mb-[5%]">
-        <div onclick="handleAdminHeaderClick()" class="flex items-center space-x-2 bg-[#1c293d] px-[3%] py-[1.5%] rounded-full border border-slate-700 shadow-sm cursor-pointer hover:border-sky-500 transition-colors max-w-[60%] sm:max-w-none overflow-hidden">
-            <i class="fa-solid fa-user text-sky-400 text-xs shrink-0"></i>
-            <span id="header-user-text" class="text-xs font-bold text-slate-200 truncate">Pengunjung / Mode Demo</span>
+    <div id="top-header-bar" class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div onclick="handleAdminHeaderClick()" class="flex items-center space-x-2 bg-indigo-50/80 px-3.5 py-1.5 rounded-full border border-indigo-100 shadow-sm cursor-pointer hover:border-indigo-300 transition-colors max-w-[60%] sm:max-w-none overflow-hidden">
+            <i class="fa-solid fa-user text-indigo-500 text-xs sm:text-sm shrink-0"></i>
+            <span id="header-user-text" class="text-xs sm:text-sm font-bold text-slate-700 truncate">Pengunjung / Mode Demo</span>
             <span id="admin-badge-indicator" class="hidden bg-purple-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">ADMIN</span>
         </div>
 
-        <div class="flex items-center space-x-[1.5%] sm:space-x-[2%] shrink-0">
-            <button id="admin-panel-trigger-btn" onclick="openAdminModal()" class="hidden bg-purple-600 hover:bg-purple-700 text-white font-extrabold text-xs px-[3%] py-[1.5%] rounded-full shadow-md transition-all flex items-center space-x-1 transform hover:scale-105">
+        <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+            <button id="admin-panel-trigger-btn" onclick="openAdminModal()" class="hidden bg-purple-600 hover:bg-purple-700 text-white font-extrabold text-xs sm:text-sm px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full shadow-md transition-all flex items-center space-x-1 transform hover:scale-105">
                 <span>🛡️ Admin</span>
             </button>
-            <button onclick="openCertificatesModal()" class="bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs px-[3.5%] py-[1.5%] rounded-full shadow-md transition-all flex items-center space-x-1 transform hover:scale-105">
+            <button onclick="openCertificatesModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold text-xs sm:text-sm px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full shadow-md transition-all flex items-center space-x-1 transform hover:scale-105">
                 <span>📜 Sertifikat</span>
             </button>
-            <button id="header-auth-btn" onclick="handleHeaderAuthAction()" class="bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs px-[3.5%] py-[1.5%] rounded-full shadow-md transition-all flex items-center space-x-1 transform hover:scale-105" title="Login / Daftar">
+            <button id="header-auth-btn" onclick="handleHeaderAuthAction()" class="bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs sm:text-sm px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md transition-all flex items-center space-x-1 transform hover:scale-105" title="Login / Daftar">
                 <span id="header-auth-label" class="flex items-center space-x-1">
-                    <i class="fa-solid fa-right-to-bracket text-amber-300"></i>
+                    <i class="fa-solid fa-key text-amber-300"></i>
                     <span>Login</span>
                 </span>
             </button>
@@ -246,8 +223,8 @@
     </div>
 
     <!-- DEMO / VIP BANNER BOX -->
-    <div id="main-vip-banner" onclick="handleVipBannerClick()" class="bg-amber-950/40 hover:bg-amber-950/60 dashed-border-amber rounded-2xl p-[3%] text-center cursor-pointer transition-colors mb-[4%] sm:mb-[5%] shadow-sm">
-        <p id="vip-status-banner" class="text-[11px] sm:text-xs font-black text-amber-400 tracking-wide">
+    <div id="main-vip-banner" onclick="handleVipBannerClick()" class="bg-amber-50 hover:bg-amber-100/80 dashed-border-amber rounded-2xl p-2.5 text-center cursor-pointer transition-colors mb-5 shadow-sm">
+        <p id="vip-status-banner" class="text-xs sm:text-sm font-black text-amber-800 tracking-wide">
             🔒 MODE DEMO (LEVEL 1 UJI KEMAMPUAN GRATIS • KLIK AKTIVASI VIP)
         </p>
     </div>
@@ -255,8 +232,8 @@
     <!-- HERO WRAPPER -->
     <div id="hero-wrapper">
         <!-- HERO LOGO SECTION -->
-        <div id="hero-section" class="text-center mb-[4%] sm:mb-[5%]">
-            <div class="inline-block w-[75%] sm:w-[60%] md:w-[50%] mx-auto anim-logo-float cursor-pointer transform transition-transform hover:scale-105">
+        <div id="hero-section" class="text-center mb-5">
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[420px] mx-auto anim-logo-float cursor-pointer transform transition-transform hover:scale-105">
                 <svg class="w-full h-auto drop-shadow-md select-none" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g class="anim-pencil">
                         <rect x="92" y="105" width="28" height="20" rx="6" fill="#ff70a6" />
@@ -307,422 +284,422 @@
                     </g>
                 </svg>
             </div>
-            <p class="text-xs text-slate-300 font-semibold mt-[2%]">
+            <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">
                 Belajar matematika dengan asik dan interaktif.
             </p>
         </div>
 
         <!-- MARQUEE CALLOUT BERBINGKAI ORANYE PUTUS-PUTUS -->
-        <div id="hero-marquee" class="bg-[#1c293d]/80 dashed-border-amber rounded-2xl px-[3%] py-[2%] mb-[4%] sm:mb-[5%] shadow-sm flex items-center justify-between gap-[2%] overflow-hidden relative">
-            <div class="shrink-0 text-base select-none z-10 pl-1">🎯</div>
+        <div id="hero-marquee" class="bg-amber-50/60 dashed-border-amber rounded-2xl px-3 py-2.5 mb-5 shadow-sm flex items-center justify-between gap-2 overflow-hidden relative">
+            <div class="shrink-0 text-base sm:text-lg select-none z-10 pl-1">🎯</div>
             <div class="flex-1 overflow-hidden relative py-0.5">
                 <div class="anim-marquee-seamless">
-                    <span class="shrink-0 text-xs font-bold text-slate-100 pr-12 whitespace-nowrap">🔥 Yuk Uji Kemampuanmu, Agar Tau Kamu Udah Lancar/Belum! 🚀               </span>
-                    <span class="shrink-0 text-xs font-bold text-slate-100 pr-12 whitespace-nowrap">🔥 Yuk Uji Kemampuanmu, Agar Tau Kamu Udah Lancar/Belum! 🚀               </span>
+                    <span class="shrink-0 text-xs sm:text-sm font-bold text-slate-700 pr-8 whitespace-nowrap">🔥 Yuk Uji Kemampuanmu, Agar Tau Kamu Udah Lancar/Belum! 🚀               </span>
+                    <span class="shrink-0 text-xs sm:text-sm font-bold text-slate-700 pr-8 whitespace-nowrap">🔥 Yuk Uji Kemampuanmu, Agar Tau Kamu Udah Lancar/Belum! 🚀               </span>
                 </div>
             </div>
-            <div class="shrink-0 text-base select-none z-10 pl-1">🚀</div>
+            <div class="shrink-0 text-base sm:text-lg select-none z-10 pr-1">🚀</div>
         </div>
 
         <!-- MODE SWITCHER TABS -->
-        <div class="bg-[#1c293d] p-[1.5%] rounded-2xl flex space-x-[2%] mb-[4%] shadow-inner border border-slate-700/60">
-            <button id="tab-latihan-btn" onclick="switchMainTab('latihan')" class="flex-1 py-[2.5%] px-[2%] rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all bg-[#2a3a52] text-sky-400 shadow-sm border border-sky-500/30">
+        <div class="bg-sky-100/70 p-1.5 rounded-2xl flex space-x-2 mb-5 shadow-inner">
+            <button id="tab-latihan-btn" onclick="switchMainTab('latihan')" class="flex-1 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-all bg-white text-sky-600 shadow-sm">
                 <span>🏋️ Mode Latihan (Gratis)</span>
             </button>
-            <button id="tab-uji-btn" onclick="switchMainTab('uji')" class="flex-1 py-[2.5%] px-[2%] rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all text-slate-400 hover:text-slate-200">
+            <button id="tab-uji-btn" onclick="switchMainTab('uji')" class="flex-1 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-all text-slate-600 hover:text-slate-900">
                 <span>🏆 Uji Kemampuan</span>
-                <span id="tab-uji-vip-badge" class="bg-amber-500 text-slate-950 text-[10px] font-black px-1.5 py-0.5 rounded-md uppercase">VIP</span>
+                <span id="tab-uji-vip-badge" class="bg-amber-400 text-slate-900 text-[10px] font-black px-1.5 py-0.5 rounded-md uppercase">VIP</span>
             </button>
         </div>
 
         <!-- TEKS BERJALAN MOTIVASI -->
-        <div id="motivation-marquee" class="bg-[#1c293d]/80 dashed-border-cyan rounded-2xl px-[3%] py-[2%] mb-[4%] sm:mb-[5%] shadow-sm flex items-center justify-between gap-[2%] overflow-hidden relative hidden">
+        <div id="motivation-marquee" class="bg-sky-50/70 dashed-border-cyan rounded-2xl px-3 py-2 mb-5 shadow-sm flex items-center justify-between gap-2 overflow-hidden relative hidden">
             <div class="shrink-0 text-base select-none z-10 pl-1">✨</div>
             <div class="flex-1 overflow-hidden relative py-0.5">
                 <div class="anim-marquee-seamless">
-                    <span class="shrink-0 text-xs font-extrabold text-sky-300 pr-12 whitespace-pre">Yukk Mulai Latihan!!!               Berlatihlah Secara Konsisten!!!               Kamu Pasti Bisa!!!               Kamu Keren!!!               </span>
-                    <span class="shrink-0 text-xs font-extrabold text-sky-300 pr-12 whitespace-pre">Yukk Mulai Latihan!!!               Berlatihlah Secara Konsisten!!!               Kamu Pasti Bisa!!!               Kamu Keren!!!               </span>
+                    <span class="shrink-0 text-xs font-extrabold text-sky-700 pr-12 whitespace-pre">Yukk Mulai Latihan!!!               Berlatihlah Secara Konsisten!!!               Kamu Pasti Bisa!!!               Kamu Keren!!!               </span>
+                    <span class="shrink-0 text-xs font-extrabold text-sky-700 pr-12 whitespace-pre">Yukk Mulai Latihan!!!               Berlatihlah Secara Konsisten!!!               Kamu Pasti Bisa!!!               Kamu Keren!!!               </span>
                 </div>
             </div>
-            <div class="shrink-0 text-base select-none z-10 pl-1">🎉</div>
+            <div class="shrink-0 text-base select-none z-10 pr-1">🎉</div>
         </div>
 
     </div>
 
     <!-- MODE LATIHAN -->
-    <div id="view-latihan" class="space-y-[4%]">
-        <div id="latihan-cat-grid" class="space-y-[3%]">
-            <p class="text-xs font-bold text-slate-300 flex items-center space-x-1">
+    <div id="view-latihan" class="space-y-5">
+        <div id="latihan-cat-grid" class="space-y-4">
+            <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center space-x-1">
                 <span>💡 Pilih Kategori Operasi Matematika yang ingin dipelajari:</span>
             </p>
 
-            <div class="grid grid-cols-1 gap-[3%]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Penjumlahan Dasar Card -->
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-sky-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-sky-400 font-black">➕</div>
+                <div class="bg-sky-50/80 rounded-2xl p-4 sm:p-5 border-2 border-sky-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-sky-500 font-black">➕</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Penjumlahan Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-sky-400 mt-0.5">6 Level Materi Lengkap</p>
+                            <h3 class="font-bold text-base text-slate-800">Penjumlahan Dasar</h3>
+                            <p class="text-xs font-bold text-sky-600 mt-0.5">6 Level Materi Lengkap</p>
                         </div>
                     </div>
-                    <button onclick="openLatihanSubMenu('penjumlahan')" class="bg-[#00a8e8] hover:bg-sky-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Materi →
+                    <button onclick="openLatihanSubMenu('penjumlahan')" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Materi →</span>
                     </button>
                 </div>
 
                 <!-- Pengurangan Dasar Card -->
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-pink-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-pink-400 font-black">➖</div>
+                <div class="bg-pink-50/80 rounded-2xl p-4 sm:p-5 border-2 border-pink-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-pink-500 font-black">➖</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Pengurangan Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-pink-400 mt-0.5">6 Level Materi Lengkap</p>
+                            <h3 class="font-bold text-base text-slate-800">Pengurangan Dasar</h3>
+                            <p class="text-xs font-bold text-pink-600 mt-0.5">6 Level Materi Lengkap</p>
                         </div>
                     </div>
-                    <button onclick="openLatihanSubMenu('pengurangan')" class="bg-pink-600 hover:bg-pink-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Materi →
+                    <button onclick="openLatihanSubMenu('pengurangan')" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Materi →</span>
                     </button>
                 </div>
 
                 <!-- Perkalian Dasar Card -->
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-amber-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-amber-400 font-black">✖️</div>
+                <div class="bg-amber-50/80 rounded-2xl p-4 sm:p-5 border-2 border-amber-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-amber-500 font-black">✖️</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Perkalian Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-amber-400 mt-0.5">10 Level Materi Lengkap</p>
+                            <h3 class="font-bold text-base text-slate-800">Perkalian Dasar</h3>
+                            <p class="text-xs font-bold text-amber-600 mt-0.5">10 Level Materi Lengkap</p>
                         </div>
                     </div>
-                    <button onclick="openLatihanSubMenu('perkalian')" class="bg-amber-600 hover:bg-amber-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Materi →
+                    <button onclick="openLatihanSubMenu('perkalian')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Materi →</span>
                     </button>
                 </div>
 
                 <!-- Pembagian Dasar Card -->
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-emerald-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-emerald-400 font-black">➗</div>
+                <div class="bg-emerald-50/80 rounded-2xl p-4 sm:p-5 border-2 border-emerald-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-emerald-600 font-black">➗</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Pembagian Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-emerald-400 mt-0.5">10 Level Materi Lengkap</p>
+                            <h3 class="font-bold text-base text-slate-800">Pembagian Dasar</h3>
+                            <p class="text-xs font-bold text-emerald-700 mt-0.5">10 Level Materi Lengkap</p>
                         </div>
                     </div>
-                    <button onclick="openLatihanSubMenu('pembagian')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Materi →
+                    <button onclick="openLatihanSubMenu('pembagian')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Materi →</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="latihan-sub-menu" class="space-y-[4%] hidden">
+        <div id="latihan-sub-menu" class="space-y-5 hidden">
             <div class="flex items-center justify-between">
-                <button onclick="backToCategories()" class="bg-[#1c293d] hover:bg-slate-700 text-sky-400 font-bold text-xs px-[4%] py-[1.5%] rounded-full border border-sky-500/40 transition-all flex items-center space-x-1 shadow-sm">
+                <button onclick="backToCategories()" class="bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold text-xs px-3.5 py-1.5 rounded-full border border-sky-300 transition-all flex items-center space-x-1 shadow-sm">
                     <span>← Kembali ke Pilih Kategori</span>
                 </button>
             </div>
 
-            <div class="bg-emerald-700 text-white rounded-2xl p-[4%] shadow-md flex items-center justify-between gap-[3%]">
+            <div class="bg-emerald-600 text-white rounded-2xl p-4 shadow-md flex items-center justify-between gap-3">
                 <div class="flex items-start space-x-3">
                     <div class="text-2xl mt-0.5">📑</div>
                     <div>
-                        <h4 class="font-bold text-xs sm:text-base">Pratinjau & Unduh Worksheet PDF</h4>
-                        <p class="text-[10px] sm:text-xs text-emerald-100 mt-0.5">Jurnal Latihan 21 Hari Lengkap Siap Pakai!!!</p>
+                        <h4 class="font-bold text-sm sm:text-base">Pratinjau & Unduh Worksheet PDF</h4>
+                        <p class="text-xs text-emerald-100 mt-0.5">Jurnal Latihan 21 Hari Lengkap Siap Pakai!!!</p>
                     </div>
                 </div>
-                <span class="bg-white text-emerald-900 text-[10px] sm:text-[11px] font-extrabold px-[3%] py-[1%] rounded-full shrink-0 shadow-sm">Google Drive</span>
+                <span class="bg-white text-emerald-800 text-[11px] font-extrabold px-3 py-1 rounded-full shrink-0 shadow-sm">Google Drive</span>
             </div>
 
-            <p class="text-xs font-bold text-slate-300">💡 Mode Trial/Gratis: PDF Level 1 Gratis diunduh. Level 2 ke atas terkunci (Khusus VIP).</p>
+            <p class="text-xs font-bold text-slate-600">💡 Mode Trial/Gratis: PDF Level 1 Gratis diunduh. Level 2 ke atas terkunci (Khusus VIP).</p>
 
-            <div id="latihan-materials-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-[3%]"></div>
+            <div id="latihan-materials-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
         </div>
 
-        <div id="latihan-quiz-view" class="space-y-[4%] hidden">
+        <div id="latihan-quiz-view" class="space-y-5 hidden">
             <div class="flex items-center justify-between">
-                <button onclick="backToSubMenu()" class="bg-[#1c293d] hover:bg-slate-700 text-sky-400 font-bold text-xs px-[4%] py-[1.5%] rounded-full border border-sky-500/40 transition-all flex items-center space-x-1 shadow-sm">
+                <button onclick="backToSubMenu()" class="bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold text-xs px-3.5 py-1.5 rounded-full border border-sky-300 transition-all flex items-center space-x-1 shadow-sm">
                     <span>← Kembali ke Pilih Materi</span>
                 </button>
-                <button id="bgm-btn" onclick="toggleBgmMusic()" class="bg-amber-950/60 hover:bg-amber-900 text-amber-300 font-bold text-xs px-[3%] py-[1.5%] rounded-full border border-amber-500/40 transition-all flex items-center space-x-1 shadow-sm">
+                <button id="bgm-btn" onclick="toggleBgmMusic()" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs px-3.5 py-1.5 rounded-full border border-amber-300 transition-all flex items-center space-x-1 shadow-sm">
                     <span id="bgm-label">🎵 Musik: ON</span>
                 </button>
             </div>
 
-            <div class="bg-[#1c293d] p-[3%] rounded-2xl border border-sky-500/40 text-xs font-bold flex flex-wrap items-center justify-between gap-[2%] text-slate-200 shadow-sm">
+            <div class="bg-sky-50 p-3 rounded-2xl border border-sky-200 text-xs font-bold flex flex-wrap items-center justify-between gap-2 text-slate-700 shadow-sm">
                 <div>
                     <span>Materi: </span>
-                    <span id="quiz-topic-title" class="text-sky-400 font-extrabold">1. Ikatan Bilangan 10</span>
+                    <span id="quiz-topic-title" class="text-sky-600 font-extrabold">1. Ikatan Bilangan 10</span>
                 </div>
-                <div class="flex space-x-2.5">
+                <div class="flex space-x-3">
                     <span>📊 Total: <span id="quiz-stat-total" class="font-extrabold">0</span></span>
-                    <span class="text-emerald-400">✅ <span id="quiz-stat-correct" class="font-extrabold">0</span></span>
-                    <span class="text-rose-400">❌ <span id="quiz-stat-wrong" class="font-extrabold">0</span></span>
+                    <span class="text-emerald-600">✅ <span id="quiz-stat-correct" class="font-extrabold">0</span></span>
+                    <span class="text-rose-600">❌ <span id="quiz-stat-wrong" class="font-extrabold">0</span></span>
                 </div>
             </div>
 
-            <div class="bg-[#1c293d] dashed-border-pink rounded-3xl p-[5%] sm:p-[8%] text-center shadow-inner relative overflow-hidden flex items-center justify-center">
-                <div id="quiz-question-display" class="font-fredoka text-2xl sm:text-4xl md:text-5xl font-black text-pink-400 tracking-wider whitespace-nowrap">
+            <div class="bg-pink-50/70 dashed-border-pink rounded-3xl p-6 sm:p-8 text-center shadow-inner relative overflow-hidden flex items-center justify-center">
+                <div id="quiz-question-display" class="font-fredoka text-3xl sm:text-5xl font-black text-pink-600 tracking-wider whitespace-nowrap">
                     1 + ... = 10
                 </div>
             </div>
 
-            <div class="flex items-center justify-center space-x-[3%] w-[85%] sm:w-[70%] mx-auto">
-                <div class="flex-1 bg-[#0f172a] border-2 border-sky-500/60 rounded-2xl py-[2%] px-[4%] text-center font-bold font-fredoka text-2xl text-sky-400 min-h-[50px] flex items-center justify-center shadow-inner">
+            <div class="flex items-center justify-center space-x-3 max-w-xs mx-auto">
+                <div class="flex-1 bg-sky-50 border-2 border-sky-300 rounded-2xl py-2.5 px-4 text-center font-bold font-fredoka text-2xl text-sky-900 min-h-[52px] flex items-center justify-center shadow-inner">
                     <span id="quiz-user-input" class="tracking-widest">?</span>
                 </div>
-                <button onclick="submitAnswer()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm px-[5%] py-[2.5%] rounded-2xl shadow-md transition-all active:scale-95">
+                <button onclick="submitAnswer()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm px-6 py-3 rounded-2xl shadow-md transition-all active:scale-95">
                     Jawab
                 </button>
             </div>
 
-            <div id="quiz-feedback-box" class="w-[85%] sm:w-[70%] mx-auto text-center font-bold text-xs sm:text-sm py-[2%] px-[4%] rounded-xl hidden transition-all"></div>
+            <div id="quiz-feedback-box" class="max-w-xs mx-auto text-center font-bold text-xs sm:text-sm py-2 px-4 rounded-xl hidden transition-all"></div>
 
-            <div class="w-[85%] sm:w-[70%] mx-auto space-y-[2%]">
-                <div class="grid grid-cols-5 gap-[2%]">
-                    <button onclick="pressNumpad('1')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">1</button>
-                    <button onclick="pressNumpad('2')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">2</button>
-                    <button onclick="pressNumpad('3')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">3</button>
-                    <button onclick="pressNumpad('4')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">4</button>
-                    <button onclick="pressNumpad('5')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">5</button>
-                    <button onclick="pressNumpad('6')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">6</button>
-                    <button onclick="pressNumpad('7')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">7</button>
-                    <button onclick="pressNumpad('8')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">8</button>
-                    <button onclick="pressNumpad('9')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">9</button>
-                    <button onclick="pressNumpad('0')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">0</button>
+            <div class="max-w-xs mx-auto space-y-2">
+                <div class="grid grid-cols-5 gap-2">
+                    <button onclick="pressNumpad('1')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">1</button>
+                    <button onclick="pressNumpad('2')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">2</button>
+                    <button onclick="pressNumpad('3')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">3</button>
+                    <button onclick="pressNumpad('4')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">4</button>
+                    <button onclick="pressNumpad('5')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">5</button>
+                    <button onclick="pressNumpad('6')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">6</button>
+                    <button onclick="pressNumpad('7')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">7</button>
+                    <button onclick="pressNumpad('8')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">8</button>
+                    <button onclick="pressNumpad('9')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">9</button>
+                    <button onclick="pressNumpad('0')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">0</button>
                 </div>
-                <button onclick="clearNumpad()" class="numpad-key w-full bg-rose-950/60 hover:bg-rose-900 text-rose-300 font-extrabold text-xs py-[2%] rounded-2xl border border-rose-500/40 shadow-sm">Hapus</button>
+                <button onclick="clearNumpad()" class="numpad-key w-full bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold text-xs py-2.5 rounded-2xl border border-rose-300 shadow-sm">Hapus</button>
             </div>
         </div>
     </div>
 
     <!-- MODE UJI KEMAMPUAN -->
-    <div id="view-uji" class="space-y-[4%] hidden">
-        <div id="uji-vip-info-box" class="bg-amber-950/40 dashed-border-amber rounded-2xl p-[3.5%] text-center space-y-2">
-            <p id="uji-vip-info-text" class="text-xs text-amber-300 font-bold">
+    <div id="view-uji" class="space-y-5 hidden">
+        <div id="uji-vip-info-box" class="bg-amber-50 dashed-border-amber rounded-2xl p-4 text-center space-y-2">
+            <p id="uji-vip-info-text" class="text-xs sm:text-sm text-slate-700 font-bold">
                 ✨ Level 1 GRATIS dicoba! Level selanjutnya terbuka berurutan setelah lulus level sebelumnya & berstatus VIP.
             </p>
-            <button id="uji-vip-upgrade-btn" onclick="handleVipBannerClick()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-[4%] py-[1.5%] rounded-xl text-xs shadow transition-all inline-flex items-center space-x-1">
+            <button id="uji-vip-upgrade-btn" onclick="handleVipBannerClick()" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition-all inline-flex items-center space-x-1">
                 <span>👑 Aktifkan Akses VIP Sekarang</span>
             </button>
         </div>
 
-        <div id="uji-cat-grid" class="space-y-[3%]">
-            <p class="text-xs font-bold text-slate-300 flex items-center space-x-1">
+        <div id="uji-cat-grid" class="space-y-4">
+            <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center space-x-1">
                 <span>💡 Pilih Kategori Operasi Matematika yang ingin diuji kelancarannya:</span>
             </p>
 
-            <div class="grid grid-cols-1 gap-[3%]">
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-sky-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-sky-400 font-black">➕</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-sky-50/80 rounded-2xl p-4 sm:p-5 border-2 border-sky-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-sky-600 font-black">➕</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Penjumlahan Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-sky-400 mt-0.5">6 Level Uji Kelancaran</p>
+                            <h3 class="font-bold text-base text-slate-800">Penjumlahan Dasar</h3>
+                            <p class="text-xs font-bold text-sky-700 mt-0.5">6 Level Uji Kelancaran</p>
                         </div>
                     </div>
-                    <button onclick="openUjiSubMenu('penjumlahan')" class="bg-[#00a8e8] hover:bg-sky-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Uji Materi →
+                    <button onclick="openUjiSubMenu('penjumlahan')" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Uji Materi →</span>
                     </button>
                 </div>
 
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-pink-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-pink-400 font-black">➖</div>
+                <div class="bg-pink-50/80 rounded-2xl p-4 sm:p-5 border-2 border-pink-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-pink-600 font-black">➖</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Pengurangan Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-pink-400 mt-0.5">6 Level Uji Kelancaran</p>
+                            <h3 class="font-bold text-base text-slate-800">Pengurangan Dasar</h3>
+                            <p class="text-xs font-bold text-pink-700 mt-0.5">6 Level Uji Kelancaran</p>
                         </div>
                     </div>
-                    <button onclick="openUjiSubMenu('pengurangan')" class="bg-pink-600 hover:bg-pink-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Uji Materi →
+                    <button onclick="openUjiSubMenu('pengurangan')" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Uji Materi →</span>
                     </button>
                 </div>
 
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-amber-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-amber-400 font-black">✖️</div>
+                <div class="bg-amber-50/80 rounded-2xl p-4 sm:p-5 border-2 border-amber-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-amber-600 font-black">✖️</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Perkalian Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-amber-400 mt-0.5">10 Level Uji Kelancaran</p>
+                            <h3 class="font-bold text-base text-slate-800">Perkalian Dasar</h3>
+                            <p class="text-xs font-bold text-amber-700 mt-0.5">10 Level Uji Kelancaran</p>
                         </div>
                     </div>
-                    <button onclick="openUjiSubMenu('perkalian')" class="bg-amber-600 hover:bg-amber-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Uji Materi →
+                    <button onclick="openUjiSubMenu('perkalian')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Uji Materi →</span>
                     </button>
                 </div>
 
-                <div class="bg-[#1c293d] rounded-2xl p-[4%] sm:p-[5%] border border-emerald-500/40 shadow-md flex items-center justify-between space-x-[3%]">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl sm:text-3xl text-emerald-400 font-black">➗</div>
+                <div class="bg-emerald-50/80 rounded-2xl p-4 sm:p-5 border-2 border-emerald-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-3xl text-emerald-600 font-black">➗</div>
                         <div>
-                            <h3 class="font-bold text-sm sm:text-base text-white">Pembagian Dasar</h3>
-                            <p class="text-[11px] sm:text-xs font-bold text-emerald-400 mt-0.5">10 Level Uji Kelancaran</p>
+                            <h3 class="font-bold text-base text-slate-800">Pembagian Dasar</h3>
+                            <p class="text-xs font-bold text-emerald-700 mt-0.5">10 Level Uji Kelancaran</p>
                         </div>
                     </div>
-                    <button onclick="openUjiSubMenu('pembagian')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-[2%] px-[4%] rounded-xl text-xs shadow-md transition-all shrink-0">
-                        Buka Uji Materi →
+                    <button onclick="openUjiSubMenu('pembagian')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                        <span>Buka Uji Materi →</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="uji-list-view" class="space-y-[4%] hidden">
+        <div id="uji-list-view" class="space-y-5 hidden">
             <div class="flex items-center justify-between">
-                <button onclick="backToUjiCategories()" class="bg-[#1c293d] hover:bg-slate-700 text-amber-300 font-bold text-xs px-[4%] py-[1.5%] rounded-full border border-amber-500/40 transition-all flex items-center space-x-1 shadow-sm">
+                <button onclick="backToUjiCategories()" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs px-3.5 py-1.5 rounded-full border border-amber-300 transition-all flex items-center space-x-1 shadow-sm">
                     <span>← Kembali ke Pilih Kategori Ujian</span>
                 </button>
             </div>
-            <h4 class="font-bold text-xs sm:text-sm text-slate-200">Pilih Level Uji Kelancaran (Prasyarat Berurutan):</h4>
-            <div id="uji-materials-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-[3%]"></div>
+            <h4 class="font-bold text-xs sm:text-sm text-slate-700">Pilih Level Uji Kelancaran (Prasyarat Berurutan):</h4>
+            <div id="uji-materials-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
         </div>
 
-        <div id="uji-exam-view" class="space-y-[4%] hidden">
-            <div class="flex items-center justify-between gap-[2%] flex-wrap">
-                <button onclick="exitExamPrompt()" class="bg-rose-950/60 hover:bg-rose-900 text-rose-300 font-bold text-xs px-[3%] py-[1.5%] rounded-full border border-rose-500/40 transition-all flex items-center space-x-1 shadow-sm">
+        <div id="uji-exam-view" class="space-y-5 hidden">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+                <button onclick="exitExamPrompt()" class="bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold text-xs px-3.5 py-1.5 rounded-full border border-rose-300 transition-all flex items-center space-x-1 shadow-sm">
                     <span>✕ Batalkan Ujian</span>
                 </button>
-                <div class="flex items-center space-x-[1.5%]">
-                    <button id="exam-bgm-btn" onclick="toggleBgmMusic()" class="bg-amber-950/60 hover:bg-amber-900 text-amber-300 font-bold text-xs px-[3%] py-[1.5%] rounded-full border border-amber-500/40 transition-all flex items-center space-x-1 shadow-sm">
+                <div class="flex items-center space-x-2">
+                    <button id="exam-bgm-btn" onclick="toggleBgmMusic()" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs px-3.5 py-1.5 rounded-full border border-amber-300 transition-all flex items-center space-x-1 shadow-sm">
                         <span id="exam-bgm-label">🎵 Musik: ON</span>
                     </button>
-                    <div class="bg-amber-950/80 text-amber-300 font-bold text-xs px-[3%] py-[1.5%] rounded-full border border-amber-500/40 shadow-sm">
+                    <div class="bg-amber-100 text-amber-900 font-bold text-xs px-3.5 py-1.5 rounded-full border border-amber-300 shadow-sm">
                         ⏱️ Waktu: <span id="exam-timer-val">15</span>s
                     </div>
                 </div>
             </div>
 
             <div class="space-y-1">
-                <div class="flex justify-between text-xs font-bold text-slate-300">
+                <div class="flex justify-between text-xs font-bold text-slate-600">
                     <span id="exam-q-indicator">Soal Ke: 1 / 20</span>
                     <span>Sisa Waktu Soal</span>
                 </div>
-                <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
                     <div id="exam-progress-bar" class="bg-amber-500 h-full w-full transition-all duration-1000"></div>
                 </div>
             </div>
 
-            <div class="bg-[#1c293d] dashed-border-amber rounded-3xl p-[4%] sm:p-[8%] text-center shadow-inner relative overflow-hidden flex items-center justify-center">
-                <div id="exam-question-display" class="font-fredoka text-2xl sm:text-4xl md:text-5xl font-black text-amber-400 tracking-wider whitespace-nowrap">
+            <div class="bg-amber-50 dashed-border-amber rounded-3xl p-6 sm:p-8 text-center shadow-inner relative overflow-hidden flex items-center justify-center">
+                <div id="exam-question-display" class="font-fredoka text-3xl sm:text-5xl font-black text-amber-700 tracking-wider whitespace-nowrap">
                     1 + 1 = ?
                 </div>
             </div>
 
-            <div class="flex items-center justify-center space-x-[3%] w-[85%] sm:w-[70%] mx-auto">
-                <div class="flex-1 bg-[#0f172a] border-2 border-sky-500/60 rounded-2xl py-[2%] px-[4%] text-center font-bold font-fredoka text-2xl text-sky-400 min-h-[50px] flex items-center justify-center shadow-inner">
+            <div class="flex items-center justify-center space-x-3 max-w-xs mx-auto">
+                <div class="flex-1 bg-sky-50 border-2 border-sky-300 rounded-2xl py-2.5 px-4 text-center font-bold font-fredoka text-2xl text-sky-900 min-h-[52px] flex items-center justify-center shadow-inner">
                     <span id="exam-user-input" class="tracking-widest">?</span>
                 </div>
-                <button onclick="submitExamAnswer()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm px-[5%] py-[2.5%] rounded-2xl shadow-md transition-all active:scale-95">
+                <button onclick="submitExamAnswer()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm px-6 py-3 rounded-2xl shadow-md transition-all active:scale-95">
                     Jawab
                 </button>
             </div>
 
-            <div class="w-[85%] sm:w-[70%] mx-auto space-y-[2%]">
-                <div class="grid grid-cols-5 gap-[2%]">
-                    <button onclick="pressExamNumpad('1')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">1</button>
-                    <button onclick="pressExamNumpad('2')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">2</button>
-                    <button onclick="pressExamNumpad('3')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">3</button>
-                    <button onclick="pressExamNumpad('4')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">4</button>
-                    <button onclick="pressExamNumpad('5')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">5</button>
-                    <button onclick="pressExamNumpad('6')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">6</button>
-                    <button onclick="pressExamNumpad('7')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">7</button>
-                    <button onclick="pressExamNumpad('8')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">8</button>
-                    <button onclick="pressExamNumpad('9')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">9</button>
-                    <button onclick="pressExamNumpad('0')" class="numpad-key bg-[#1c293d] hover:bg-slate-700 text-sky-300 font-bold font-fredoka text-lg py-[8%] rounded-2xl border border-sky-500/30 shadow-sm">0</button>
+            <div class="max-w-xs mx-auto space-y-2">
+                <div class="grid grid-cols-5 gap-2">
+                    <button onclick="pressExamNumpad('1')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">1</button>
+                    <button onclick="pressExamNumpad('2')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">2</button>
+                    <button onclick="pressExamNumpad('3')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">3</button>
+                    <button onclick="pressExamNumpad('4')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">4</button>
+                    <button onclick="pressExamNumpad('5')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">5</button>
+                    <button onclick="pressExamNumpad('6')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">6</button>
+                    <button onclick="pressExamNumpad('7')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">7</button>
+                    <button onclick="pressExamNumpad('8')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">8</button>
+                    <button onclick="pressExamNumpad('9')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">9</button>
+                    <button onclick="pressExamNumpad('0')" class="numpad-key bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold font-fredoka text-xl py-3 rounded-2xl border border-sky-300 shadow-sm">0</button>
                 </div>
-                <button onclick="clearExamNumpad()" class="numpad-key w-full bg-rose-950/60 hover:bg-rose-900 text-rose-300 font-extrabold text-xs py-[2%] rounded-2xl border border-rose-500/40 shadow-sm">Hapus</button>
+                <button onclick="clearExamNumpad()" class="numpad-key w-full bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold text-xs py-2.5 rounded-2xl border border-rose-300 shadow-sm">Hapus</button>
             </div>
         </div>
 
-        <div id="uji-result-view" class="space-y-[4%] hidden text-center">
-            <div id="result-status-card" class="bg-[#1c293d] rounded-3xl p-[5%] sm:p-[6%] border-4 border-amber-500/60 shadow-lg space-y-[3.5%]">
-                <div class="text-4xl sm:text-5xl" id="result-badge-icon">🏆</div>
-                <h3 id="result-title" class="font-fredoka text-xl sm:text-2xl font-black text-amber-400">HASIL EVALUASI UJIAN</h3>
+        <div id="uji-result-view" class="space-y-5 hidden text-center">
+            <div id="result-status-card" class="bg-white rounded-3xl p-6 border-4 border-amber-300 shadow-lg space-y-4">
+                <div class="text-5xl" id="result-badge-icon">🏆</div>
+                <h3 id="result-title" class="font-fredoka text-2xl font-black text-amber-800">HASIL EVALUASI UJIAN</h3>
                 
-                <div class="grid grid-cols-2 gap-[2.5%] w-[85%] sm:w-[70%] mx-auto text-xs font-bold">
-                    <div class="bg-[#0f172a] p-[4%] rounded-2xl border border-sky-500/30">
-                        <p class="text-slate-400">Nilai Akhir</p>
-                        <p id="result-score" class="text-lg sm:text-xl font-black text-sky-400">0 / 100</p>
+                <div class="grid grid-cols-2 gap-3 max-w-xs mx-auto text-xs font-bold">
+                    <div class="bg-sky-50 p-3 rounded-2xl border border-sky-200">
+                        <p class="text-slate-500">Nilai Akhir</p>
+                        <p id="result-score" class="text-xl font-black text-sky-600">0 / 100</p>
                     </div>
-                    <div class="bg-[#0f172a] p-[4%] rounded-2xl border border-amber-500/30">
-                        <p class="text-slate-400">Rata-rata Waktu</p>
-                        <p id="result-avg-time" class="text-lg sm:text-xl font-black text-amber-400">0.0s</p>
+                    <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200">
+                        <p class="text-slate-500">Rata-rata Waktu</p>
+                        <p id="result-avg-time" class="text-xl font-black text-amber-600">0.0s</p>
                     </div>
                 </div>
 
-                <div id="result-predicate" class="text-xs font-bold py-[2%] px-[4%] rounded-xl">Predikat</div>
-                <p id="result-desc" class="text-xs text-slate-300 px-[2%]">Syarat Lulus: Nilai ≥ 90 & Waktu Rata-rata < 10 detik/soal.</p>
+                <div id="result-predicate" class="text-xs font-bold py-2 px-4 rounded-xl">Predikat</div>
+                <p id="result-desc" class="text-xs text-slate-600 px-4">Syarat Lulus: Nilai ≥ 90 & Waktu Rata-rata < 10 detik/soal.</p>
                 
                 <div id="result-cert-claim-box" class="hidden pt-2">
-                    <button id="result-cert-claim-btn" onclick="openCertificatesModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold py-[3%] px-[4%] rounded-2xl text-xs shadow-md transition-all flex items-center justify-center space-x-2">
+                    <button id="result-cert-claim-btn" onclick="openCertificatesModal()" class="w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold py-3 px-4 rounded-2xl text-xs shadow-md transition-all flex items-center justify-center space-x-2">
                         <span>📜 Buka Papan Sertifikat Anda →</span>
                     </button>
                 </div>
             </div>
 
-            <button onclick="backToUjiList()" class="bg-[#00a8e8] hover:bg-sky-500 text-white font-bold py-[2.5%] px-[6%] rounded-2xl text-xs sm:text-sm shadow-md">
+            <button onclick="backToUjiList()" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-2xl text-xs sm:text-sm shadow-md">
                 ← Kembali ke Daftar Materi Ujian
             </button>
         </div>
     </div>
     
-    <footer class="mt-[8%] pt-[4%] border-t border-slate-800 text-center text-xs text-slate-400 font-bold">
+    <footer class="mt-8 pt-4 border-t border-slate-200 text-center text-xs text-slate-500 font-bold">
         <p>© 2026 MATEMASIK</p>
     </footer>
 
 </main>
 
 <!-- FLOATING WA BUTTON -->
-<a href="https://wa.me/6285697675338" target="_blank" class="fixed bottom-[3%] right-[3%] sm:bottom-[4%] sm:right-[4%] bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-[3.5%] py-[2%] sm:px-[4%] sm:py-[2.5%] rounded-full shadow-xl flex items-center space-x-2 text-xs sm:text-sm z-40 transition-transform transform hover:scale-105 border-2 border-emerald-400">
-    <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i>
+<a href="https://wa.me/6285697675338" target="_blank" class="fixed bottom-5 right-5 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-4 py-2.5 rounded-full shadow-xl flex items-center space-x-2 text-xs sm:text-sm z-40 transition-transform transform hover:scale-105 border-2 border-white">
+    <i class="fa-brands fa-whatsapp text-lg"></i>
     <span>Bantuan WA</span>
 </a>
 
 <!-- ADMIN PANEL MODAL -->
-<div id="modal-admin" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[2%] sm:p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-2 sm:border-4 border-purple-500 w-[94%] sm:w-[86%] md:w-[70%] max-h-[94vh] flex flex-col shadow-2xl overflow-hidden">
-        <div class="bg-purple-950 text-white px-[4%] py-[3%] flex items-center justify-between border-b border-purple-800">
+<div id="modal-admin" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+    <div class="bg-white rounded-[28px] border-4 border-purple-300 w-full max-w-xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+        <div class="bg-purple-100 text-purple-900 px-5 py-3 flex items-center justify-between border-b border-purple-200">
             <div class="flex items-center space-x-2">
-                <span class="text-xl sm:text-2xl">🛡️</span>
+                <span class="text-2xl">🛡️</span>
                 <div>
-                    <h3 class="font-fredoka font-bold text-sm sm:text-base text-purple-200">Panel Pengelola Admin</h3>
-                    <p class="text-[10px] sm:text-[11px] text-purple-300">Kelola Pengguna, Reset Password, Kode Voucher, dan Status VIP</p>
+                    <h3 class="font-fredoka font-bold text-base text-purple-950">Panel Pengelola Admin</h3>
+                    <p class="text-[11px] text-purple-800">Kelola Pengguna, Reset Password, Kode Voucher, dan Status VIP</p>
                 </div>
             </div>
-            <button onclick="closeModal('modal-admin')" class="w-7 h-7 rounded-full bg-purple-900 text-purple-100 font-bold text-xs flex items-center justify-center hover:bg-purple-800">✕</button>
+            <button onclick="closeModal('modal-admin')" class="w-7 h-7 rounded-full bg-purple-200 text-purple-900 font-bold text-xs flex items-center justify-center hover:bg-purple-300">✕</button>
         </div>
 
-        <div class="bg-[#1c293d] p-[1.5%] flex space-x-[1.5%] border-b border-purple-900">
-            <button id="admin-tab-users" onclick="switchAdminTab('users')" class="flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-extrabold bg-purple-600 text-white shadow-sm">
+        <div class="bg-purple-50 p-1.5 flex space-x-1 border-b border-purple-200">
+            <button id="admin-tab-users" onclick="switchAdminTab('users')" class="flex-1 py-2 rounded-xl text-xs font-extrabold bg-purple-600 text-white shadow-sm">
                 👥 Pengguna (<span id="admin-user-count">0</span>)
             </button>
-            <button id="admin-tab-vouchers" onclick="switchAdminTab('vouchers')" class="flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-bold text-purple-300 hover:text-white">
+            <button id="admin-tab-vouchers" onclick="switchAdminTab('vouchers')" class="flex-1 py-2 rounded-xl text-xs font-bold text-purple-800 hover:text-purple-950">
                 🎟️ Buat Voucher
             </button>
-            <button id="admin-tab-stats" onclick="switchAdminTab('stats')" class="flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-bold text-purple-300 hover:text-white">
+            <button id="admin-tab-stats" onclick="switchAdminTab('stats')" class="flex-1 py-2 rounded-xl text-xs font-bold text-purple-800 hover:text-purple-950">
                 📊 Statistik
             </button>
         </div>
         
-        <div class="flex-1 p-[4%] overflow-y-auto space-y-[4%] text-xs">
-            <div id="admin-view-users" class="space-y-[3%]">
+        <div class="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
+            <div id="admin-view-users" class="space-y-3">
                 <div class="flex items-center justify-between">
-                    <span class="font-bold text-slate-200">Daftar Pengguna Terdaftar:</span>
-                    <button onclick="refreshAdminData()" class="bg-purple-900 hover:bg-purple-800 text-purple-200 font-bold px-[3%] py-[1%] rounded-lg text-[11px]">🔄 Refresh Data</button>
+                    <span class="font-bold text-slate-700">Daftar Pengguna Terdaftar:</span>
+                    <button onclick="refreshAdminData()" class="bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold px-3 py-1 rounded-lg text-[11px]">🔄 Refresh Data</button>
                 </div>
-                <div id="admin-users-list" class="space-y-[2%]"></div>
+                <div id="admin-users-list" class="space-y-2"></div>
             </div>
 
-            <div id="admin-view-vouchers" class="space-y-[4%] hidden">
-                <div class="bg-[#1c293d] p-[4%] rounded-2xl border border-purple-800 space-y-[3%]">
-                    <h4 class="font-bold text-purple-200 text-xs sm:text-sm">🎟️ Buat Kode Voucher VIP Custom</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-[3%]">
+            <div id="admin-view-vouchers" class="space-y-4 hidden">
+                <div class="bg-purple-50/70 p-4 rounded-2xl border border-purple-200 space-y-3">
+                    <h4 class="font-bold text-purple-950 text-xs sm:text-sm">🎟️ Buat Kode Voucher VIP Custom</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                            <label class="block font-bold text-slate-300 mb-1">Kode Voucher Custom</label>
-                            <input type="text" id="admin-v-code" placeholder="Misal: VIPSPECIAL30" class="w-full px-[3%] py-[2%] rounded-xl bg-[#0f172a] border border-slate-700 text-white font-mono uppercase focus:border-purple-500">
+                            <label class="block font-bold text-slate-700 mb-1">Kode Voucher Custom</label>
+                            <input type="text" id="admin-v-code" placeholder="Misal: VIPSPECIAL30" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-800 font-mono uppercase focus:border-purple-500">
                         </div>
                         <div>
-                            <label class="block font-bold text-slate-300 mb-1">Durasi VIP (Hari)</label>
-                            <select id="admin-v-days" class="w-full px-[3%] py-[2%] rounded-xl bg-[#0f172a] border border-slate-700 text-white focus:border-purple-500">
+                            <label class="block font-bold text-slate-700 mb-1">Durasi VIP (Hari)</label>
+                            <select id="admin-v-days" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-800 focus:border-purple-500">
                                 <option value="7">7 Hari (1 Minggu)</option>
                                 <option value="30" selected>30 Hari (1 Bulan)</option>
                                 <option value="365">365 Hari (1 Tahun)</option>
@@ -730,109 +707,109 @@
                             </select>
                         </div>
                     </div>
-                    <button onclick="adminCreateVoucher()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-extrabold py-[2.5%] rounded-xl shadow">
+                    <button onclick="adminCreateVoucher()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-2.5 rounded-xl shadow">
                         ➕ Terbitkan Kode Voucher Baru
                     </button>
                 </div>
 
-                <h4 class="font-bold text-slate-200 pt-1">Daftar Kode Voucher Aktif:</h4>
-                <div id="admin-vouchers-list" class="space-y-[2%]"></div>
+                <h4 class="font-bold text-slate-700 pt-1">Daftar Kode Voucher Aktif:</h4>
+                <div id="admin-vouchers-list" class="space-y-2"></div>
             </div>
 
-            <div id="admin-view-stats" class="space-y-[3%] hidden">
-                <div class="grid grid-cols-3 gap-[2.5%]">
-                    <div class="bg-[#1c293d] p-[3%] rounded-2xl border border-indigo-500/40 text-center">
-                        <p class="text-slate-400 font-bold text-[10px] sm:text-xs">Total Pengguna</p>
-                        <p id="stat-total-users" class="text-xl sm:text-2xl font-black text-indigo-400">0</p>
+            <div id="admin-view-stats" class="space-y-3 hidden">
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-indigo-50 p-3 rounded-2xl border border-indigo-200 text-center">
+                        <p class="text-slate-500 font-bold text-[10px] sm:text-xs">Total Pengguna</p>
+                        <p id="stat-total-users" class="text-xl sm:text-2xl font-black text-indigo-600">0</p>
                     </div>
-                    <div class="bg-[#1c293d] p-[3%] rounded-2xl border border-amber-500/40 text-center">
-                        <p class="text-slate-400 font-bold text-[10px] sm:text-xs">VIP Aktif</p>
-                        <p id="stat-vip-users" class="text-xl sm:text-2xl font-black text-amber-400">0</p>
+                    <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200 text-center">
+                        <p class="text-slate-500 font-bold text-[10px] sm:text-xs">VIP Aktif</p>
+                        <p id="stat-vip-users" class="text-xl sm:text-2xl font-black text-amber-600">0</p>
                     </div>
-                    <div class="bg-[#1c293d] p-[3%] rounded-2xl border border-purple-500/40 text-center">
-                        <p class="text-slate-400 font-bold text-[10px] sm:text-xs">Total Voucher</p>
-                        <p id="stat-total-vouchers" class="text-xl sm:text-2xl font-black text-purple-400">0</p>
+                    <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 text-center">
+                        <p class="text-slate-500 font-bold text-[10px] sm:text-xs">Total Voucher</p>
+                        <p id="stat-total-vouchers" class="text-xl sm:text-2xl font-black text-purple-600">0</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-[#0f172a] px-[4%] py-[2.5%] border-t border-slate-800 text-center">
-            <button onclick="closeModal('modal-admin')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-xs px-[6%] py-[2%] rounded-xl">Tutup Panel</button>
+        <div class="bg-slate-50 px-5 py-3 border-t border-slate-200 text-center">
+            <button onclick="closeModal('modal-admin')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs px-6 py-2 rounded-xl">Tutup Panel</button>
         </div>
     </div>
 </div>
 
 <!-- CERTIFICATES LIST MODAL -->
-<div id="modal-certificates-list" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[2%] sm:p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-2 sm:border-4 border-amber-500 w-[94%] sm:w-[86%] md:w-[65%] max-h-[94vh] flex flex-col shadow-2xl overflow-hidden">
-        <div class="bg-amber-950/80 px-[4%] py-[3%] border-b border-amber-800 flex items-center justify-between">
+<div id="modal-certificates-list" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+    <div class="bg-white rounded-[28px] border-4 border-amber-300 w-full max-w-xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+        <div class="bg-amber-50 px-5 py-3 border-b border-amber-200 flex items-center justify-between">
             <div class="flex items-center space-x-2">
-                <span class="text-xl sm:text-2xl">📜</span>
+                <span class="text-2xl">📜</span>
                 <div>
-                    <h3 class="font-fredoka font-bold text-sm sm:text-base text-amber-300">Papan Sertifikat Kelancaran</h3>
-                    <p class="text-[10px] sm:text-[11px] text-amber-200/80">Kumpulkan semua sertifikat materi untuk membuka Sertifikat Master Keseluruhan!</p>
+                    <h3 class="font-fredoka font-bold text-base text-amber-900">Papan Sertifikat Kelancaran</h3>
+                    <p class="text-[11px] text-amber-800">Kumpulkan semua sertifikat materi untuk membuka Sertifikat Master Keseluruhan!</p>
                 </div>
             </div>
-            <button onclick="closeModal('modal-certificates-list')" class="w-7 h-7 rounded-full bg-amber-900 text-amber-200 font-bold text-xs flex items-center justify-center hover:bg-amber-800">✕</button>
+            <button onclick="closeModal('modal-certificates-list')" class="w-7 h-7 rounded-full bg-amber-200 text-amber-900 font-bold text-xs flex items-center justify-center hover:bg-amber-300">✕</button>
         </div>
         
-        <div class="flex-1 p-[4%] overflow-y-auto space-y-[4%]">
-            <div id="cert-card-grand" class="rounded-2xl p-[4%] border-2 border-amber-500 bg-gradient-to-r from-amber-950 via-[#1c293d] to-amber-950 shadow-md space-y-[3%]">
-                <div class="flex items-start justify-between gap-[2%]">
-                    <div class="flex items-center space-x-2.5">
-                        <div class="text-3xl sm:text-4xl">👑</div>
+        <div class="flex-1 p-4 overflow-y-auto space-y-4">
+            <div id="cert-card-grand" class="rounded-2xl p-4 border-2 border-amber-400 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-100 shadow-md space-y-3">
+                <div class="flex items-start justify-between gap-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="text-4xl">👑</div>
                         <div>
-                            <h4 class="font-fredoka font-bold text-xs sm:text-base text-amber-300">SERTIFIKAT KESELURUHAN (MASTER MATEMASIK)</h4>
-                            <p class="text-[11px] font-semibold text-amber-200/80">Menguasai Seluruh Operasi Matematika</p>
+                            <h4 class="font-fredoka font-bold text-sm sm:text-base text-amber-950">SERTIFIKAT KESELURUHAN (MASTER MATEMASIK)</h4>
+                            <p class="text-xs font-semibold text-amber-800">Menguasai Seluruh Operasi Matematika</p>
                         </div>
                     </div>
-                    <span id="cert-badge-grand" class="bg-amber-900 text-amber-200 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase shrink-0">🔒 Terkunci</span>
+                    <span id="cert-badge-grand" class="bg-amber-200 text-amber-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase shrink-0">🔒 Terkunci</span>
                 </div>
-                <div class="text-[11px] sm:text-xs text-slate-300 bg-[#0f172a] p-[2.5%] rounded-xl border border-amber-500/30">
-                    <p id="cert-desc-grand" class="font-bold text-slate-200">Syarat: Dapatkan 4 Sertifikat Materi (Penjumlahan, Pengurangan, Perkalian, Pembagian).</p>
+                <div class="text-xs text-slate-600 bg-white/80 p-2.5 rounded-xl border border-amber-200">
+                    <p id="cert-desc-grand" class="font-bold text-slate-700">Syarat: Dapatkan 4 Sertifikat Materi (Penjumlahan, Pengurangan, Perkalian, Pembagian).</p>
                 </div>
-                <button id="cert-btn-grand" disabled onclick="viewCertificate('grand')" class="w-full bg-slate-800 text-slate-500 font-extrabold py-[2.5%] rounded-xl text-xs shadow-sm cursor-not-allowed">
+                <button id="cert-btn-grand" disabled onclick="viewCertificate('grand')" class="w-full bg-slate-200 text-slate-400 font-extrabold py-2.5 rounded-xl text-xs shadow-sm cursor-not-allowed">
                     🔒 Belum Memenuhi Syarat
                 </button>
             </div>
 
-            <h4 class="font-bold text-xs text-slate-400 uppercase tracking-wider pt-1">Sertifikat Per Kategori Materi:</h4>
+            <h4 class="font-bold text-xs text-slate-500 uppercase tracking-wider pt-1">Sertifikat Per Kategori Materi:</h4>
 
-            <div id="cert-category-list" class="grid grid-cols-1 sm:grid-cols-2 gap-[3%]"></div>
+            <div id="cert-category-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
         </div>
 
-        <div class="bg-[#0f172a] px-[4%] py-[2.5%] border-t border-slate-800 text-center">
-            <button onclick="closeModal('modal-certificates-list')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-xs px-[6%] py-[2%] rounded-xl">Tutup</button>
+        <div class="bg-slate-50 px-5 py-3 border-t border-slate-200 text-center">
+            <button onclick="closeModal('modal-certificates-list')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs px-6 py-2 rounded-xl">Tutup</button>
         </div>
     </div>
 </div>
 
-<!-- PRINTABLE CERTIFICATE VIEW MODAL (TAMPILAN RESMI SERTIFIKAT BERWARNA TERANG) -->
-<div id="modal-print-cert" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[2%] sm:p-[4%] hidden">
-    <div class="bg-white text-slate-900 rounded-2xl sm:rounded-[24px] border-2 sm:border-4 border-amber-400 w-[96%] sm:w-[88%] md:w-[75%] p-[3%] sm:p-[4%] shadow-2xl relative space-y-3 max-h-[98vh] overflow-y-auto">
+<!-- PRINTABLE CERTIFICATE VIEW MODAL -->
+<div id="modal-print-cert" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-2 sm:p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-[24px] border-4 border-amber-400 w-full max-w-2xl p-3 sm:p-6 shadow-2xl relative space-y-3 max-h-[96vh] overflow-y-auto">
         
         <div class="no-print flex justify-between items-center border-b pb-3 gap-2 flex-wrap">
             <span class="text-xs font-bold text-slate-700">🏆 Pratinjau & Cetak Sertifikat Resmi MATEMASIK</span>
-            <div class="flex space-x-[2%]">
-                <button onclick="downloadCertPDF()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-[11px] sm:text-xs px-[3%] py-[1.5%] rounded-xl shadow transition-all flex items-center space-x-1">
+            <div class="flex space-x-2">
+                <button onclick="downloadCertPDF()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs px-3 py-1.5 rounded-xl shadow transition-all flex items-center space-x-1">
                     <span>🟢 Unduh PDF Instan</span>
                 </button>
-                <button onclick="printCurrentCertificate()" class="bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-[11px] sm:text-xs px-[3%] py-[1.5%] rounded-xl shadow transition-all flex items-center space-x-1">
+                <button onclick="printCurrentCertificate()" class="bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs px-3 py-1.5 rounded-xl shadow transition-all flex items-center space-x-1">
                     <span>🖨️ Cetak Printer</span>
                 </button>
-                <button onclick="closeModal('modal-print-cert')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs px-[2.5%] py-[1.5%] rounded-xl">✕ Tutup</button>
+                <button onclick="closeModal('modal-print-cert')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs px-2.5 py-1.5 rounded-xl">✕ Tutup</button>
             </div>
         </div>
 
-        <div id="cert-print-area" class="cert-outer-frame p-[4%] sm:p-[6%] rounded-xl relative text-center space-y-[3%] select-none overflow-hidden bg-white" style="background-color: #ffffff !important;">
+        <div id="cert-print-area" class="cert-outer-frame p-6 sm:p-8 rounded-xl relative text-center space-y-4 select-none overflow-hidden bg-white" style="background-color: #ffffff !important;">
             <div class="cert-corner-ornament cert-corner-tl"></div>
             <div class="cert-corner-ornament cert-corner-tr"></div>
             <div class="cert-corner-ornament cert-corner-bl"></div>
             <div class="cert-corner-ornament cert-corner-br"></div>
 
             <!-- WATERMARK LOGO BACKGROUND -->
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.12; pointer-events: none; z-index: 0; width: 65%; max-width: 340px; height: auto; display: flex; items-center: center; justify-content: center;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.12; pointer-events: none; z-index: 0; width: 65%; max-width: 340px; height: auto; display: flex; align-items: center; justify-content: center;">
                 <svg class="w-full h-auto" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <rect x="92" y="105" width="28" height="20" rx="6" fill="#ff70a6" />
@@ -866,10 +843,9 @@
                 </svg>
             </div>
 
-            <div class="relative z-10 space-y-[2.5%] sm:space-y-[3%]">
-                <!-- LOGO HEADER SERTIFIKAT UTUH -->
+            <div class="relative z-10 space-y-3">
                 <div class="flex justify-center mb-1">
-                    <div class="w-[35%] max-w-[170px] inline-block">
+                    <div class="w-36 max-w-[170px] inline-block">
                         <svg class="w-full h-auto" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g>
                                 <rect x="92" y="105" width="28" height="20" rx="6" fill="#ff70a6" />
@@ -914,37 +890,36 @@
                     </div>
                 </div>
 
-                <div class="inline-block px-[4%] py-[1%] rounded-full cert-ribbon-banner">
-                    <span id="cert-ribbon-text" class="font-serif font-black text-[11px] sm:text-xs tracking-widest text-amber-950 uppercase">
+                <div class="inline-block px-4 py-1 rounded-full cert-ribbon-banner">
+                    <span id="cert-ribbon-text" class="font-serif font-black text-xs tracking-widest text-amber-950 uppercase">
                         SERTIFIKAT KELANCARAN MATERI
                     </span>
                 </div>
 
-                <h2 id="cert-display-main-title" class="font-serif font-black text-base sm:text-2xl text-slate-900 tracking-wide uppercase pt-0.5">
+                <h2 id="cert-display-main-title" class="font-serif font-black text-lg sm:text-2xl text-slate-900 tracking-wide uppercase pt-0.5">
                     MATEMATIKA DASAR: PENJUMLAHAN
                 </h2>
 
-                <p class="text-[11px] sm:text-xs text-slate-700 font-medium italic">
+                <p class="text-xs text-slate-700 font-medium italic">
                     Dengan Bangga Diserahkan Kepada:
                 </p>
 
-                <div class="py-0.5 w-[70%] mx-auto">
-                    <input type="text" id="cert-recipient-name" value="[NAMA SISWA]" class="no-print w-full text-center font-serif font-bold text-lg sm:text-2xl text-slate-900 border-b-2 border-slate-800 focus:outline-none focus:border-amber-600 bg-transparent py-0.5 uppercase" placeholder="[NAMA SISWA]">
+                <div class="py-0.5 max-w-xs mx-auto">
+                    <input type="text" id="cert-recipient-name" value="[NAMA SISWA]" class="no-print w-full text-center font-serif font-bold text-xl sm:text-2xl text-slate-900 border-b-2 border-slate-800 focus:outline-none focus:border-amber-600 bg-transparent py-0.5 uppercase" placeholder="[NAMA SISWA]">
                     <h3 id="cert-recipient-name-print" class="hidden font-serif font-bold text-xl sm:text-2xl text-slate-900 border-b-2 border-slate-900 py-0.5 inline-block px-6 uppercase" style="color: #0f172a !important;">[NAMA SISWA]</h3>
                 </div>
 
-                <p id="cert-display-description" class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium w-[85%] mx-auto">
+                <p id="cert-display-description" class="text-xs text-slate-700 leading-relaxed font-medium max-w-md mx-auto">
                     Atas keberhasilannya dalam menguasai materi penjumlahan dasar dengan sangat baik dan penuh dedikasi.
                 </p>
 
-                <div class="pt-4 flex items-end justify-between px-[2%] sm:px-[6%]">
+                <div class="pt-4 flex items-end justify-between px-2 sm:px-6">
                     <div class="text-left space-y-0.5">
                         <p class="text-[10px] sm:text-xs text-slate-700 font-bold">
                             Tanggal: <span id="cert-issue-date" class="font-normal underline decoration-slate-400">8 November 2026</span>
                         </p>
                         <p class="text-[10px] sm:text-xs text-slate-700 font-bold">Disertifikasi Oleh:</p>
 
-                        <!-- TTD Vektor SVG -->
                         <div class="py-0.5 w-24 h-10 flex items-center justify-start">
                             <svg width="100" height="38" viewBox="0 0 160 60" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width: 100px; height: 38px;">
                                 <path d="M 10 40 C 25 10, 40 5, 45 25 C 50 45, 30 55, 60 20 C 75 5, 80 40, 95 30 C 110 20, 100 45, 120 15 M 25 35 L 75 35 M 40 48 C 60 52, 110 50, 145 42" stroke="#0f172a" stroke-width="3" fill="none"/>
@@ -962,10 +937,10 @@
                             <div class="w-3 h-7 bg-sky-900 transform -rotate-12 rounded-b-sm border-t border-sky-950"></div>
                             <div class="w-3 h-7 bg-sky-900 transform rotate-12 rounded-b-sm border-t border-sky-950"></div>
                         </div>
-                        <div class="relative z-10 w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-yellow-200 via-amber-400 to-yellow-600 border-2 sm:border-4 border-amber-200 shadow-md flex items-center justify-center p-0.5">
+                        <div class="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-yellow-200 via-amber-400 to-yellow-600 border-2 sm:border-4 border-amber-200 shadow-md flex items-center justify-center p-0.5">
                             <div class="w-full h-full rounded-full border border-dashed border-amber-900 flex flex-col items-center justify-center text-center p-0.5">
                                 <span class="text-[6px] sm:text-[7px] font-black tracking-widest text-amber-950 uppercase">VERIFIKASI</span>
-                                <span class="font-fredoka font-black text-xl sm:text-3xl text-amber-950 leading-none my-0.5">M</span>
+                                <span class="font-fredoka font-black text-xl sm:text-2xl text-amber-950 leading-none my-0.5">M</span>
                                 <span class="text-[6px] sm:text-[7px] font-black tracking-widest text-amber-950 uppercase">VERIFIKASI</span>
                             </div>
                         </div>
@@ -977,17 +952,17 @@
 </div>
 
 <!-- CANCEL EXAM MODAL -->
-<div id="modal-cancel-exam" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-4 border-rose-500/60 w-[90%] sm:w-[75%] md:w-[50%] p-[5%] sm:p-[6%] shadow-2xl relative space-y-[3.5%] text-center">
-        <button onclick="closeModal('modal-cancel-exam')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-200 font-bold text-lg">✕</button>
-        <div class="text-3xl sm:text-4xl">⚠️</div>
-        <h3 class="font-fredoka text-lg sm:text-xl font-bold text-rose-400">Batalkan Ujian?</h3>
-        <p class="text-xs text-slate-300 font-medium">Apakah kamu yakin ingin membatalkan ujian ini? Progres jawabanmu tidak akan disimpan.</p>
-        <div class="flex space-x-[2%] pt-2">
-            <button onclick="closeModal('modal-cancel-exam')" class="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold py-[2.5%] rounded-xl text-xs transition-all">
+<div id="modal-cancel-exam" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-[28px] border-4 border-rose-300 w-full max-w-sm p-6 shadow-2xl relative space-y-4 text-center">
+        <button onclick="closeModal('modal-cancel-exam')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-lg">✕</button>
+        <div class="text-4xl">⚠️</div>
+        <h3 class="font-fredoka text-xl font-bold text-rose-600">Batalkan Ujian?</h3>
+        <p class="text-xs text-slate-600 font-medium">Apakah kamu yakin ingin membatalkan ujian ini? Progres jawabanmu tidak akan disimpan.</p>
+        <div class="flex space-x-2 pt-2">
+            <button onclick="closeModal('modal-cancel-exam')" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition-all">
                 Lanjutkan
             </button>
-            <button onclick="confirmExitExam()" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-extrabold py-[2.5%] rounded-xl text-xs shadow-md transition-all">
+            <button onclick="confirmExitExam()" class="flex-1 bg-rose-500 hover:bg-rose-600 text-white font-extrabold py-2.5 rounded-xl text-xs shadow-md transition-all">
                 Ya, Batalkan
             </button>
         </div>
@@ -995,17 +970,17 @@
 </div>
 
 <!-- LOGOUT CONFIRMATION MODAL -->
-<div id="modal-logout" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-4 border-sky-500/60 w-[90%] sm:w-[75%] md:w-[50%] p-[5%] sm:p-[6%] shadow-2xl relative space-y-[3.5%] text-center">
-        <button onclick="closeModal('modal-logout')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-200 font-bold text-lg">✕</button>
-        <div class="text-3xl sm:text-4xl">🚪</div>
-        <h3 class="font-fredoka text-lg sm:text-xl font-bold text-sky-400">Keluar Akun?</h3>
-        <p class="text-xs text-slate-300 font-medium">Apakah Anda yakin ingin keluar dari akun ini?</p>
-        <div class="flex space-x-[2%] pt-2">
-            <button onclick="closeModal('modal-logout')" class="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold py-[2.5%] rounded-xl text-xs transition-all">
+<div id="modal-logout" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-[28px] border-4 border-sky-300 w-full max-w-sm p-6 shadow-2xl relative space-y-4 text-center">
+        <button onclick="closeModal('modal-logout')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-lg">✕</button>
+        <div class="text-4xl">🚪</div>
+        <h3 class="font-fredoka text-xl font-bold text-sky-600">Keluar Akun?</h3>
+        <p class="text-xs text-slate-600 font-medium">Apakah Anda yakin ingin keluar dari akun ini?</p>
+        <div class="flex space-x-2 pt-2">
+            <button onclick="closeModal('modal-logout')" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition-all">
                 Batal
             </button>
-            <button onclick="confirmLogout()" class="flex-1 bg-sky-600 hover:bg-sky-500 text-white font-extrabold py-[2.5%] rounded-xl text-xs shadow-md transition-all">
+            <button onclick="confirmLogout()" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white font-extrabold py-2.5 rounded-xl text-xs shadow-md transition-all">
                 Ya, Keluar
             </button>
         </div>
@@ -1013,30 +988,30 @@
 </div>
 
 <!-- AUTH MODAL (LOGIN / REGISTER) -->
-<div id="modal-auth" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-4 border-sky-500/60 w-[94%] sm:w-[80%] md:w-[60%] p-[5%] sm:p-[6%] shadow-2xl relative space-y-[3.5%]">
-        <button onclick="closeModal('modal-auth')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-200 font-bold text-lg">✕</button>
+<div id="modal-auth" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-[28px] border-4 border-sky-300 w-full max-w-md p-6 shadow-2xl relative space-y-4">
+        <button onclick="closeModal('modal-auth')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-lg">✕</button>
         <div class="text-center">
-            <div class="text-2xl sm:text-3xl mb-1">🔐</div>
-            <h3 class="font-fredoka text-lg sm:text-xl font-bold text-sky-400">Masuk / Daftar MATEMASIK</h3>
+            <div class="text-3xl mb-1">🔐</div>
+            <h3 class="font-fredoka text-xl font-bold text-sky-600">Masuk / Daftar MATEMASIK</h3>
         </div>
-        <div class="bg-amber-950/40 border border-amber-500/40 rounded-xl p-[3%] text-[11px] text-amber-300 font-bold">
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-[11px] text-amber-800 font-bold">
             ⚠️ Masuk atau buat akun baru untuk menyimpan status VIP & kemajuan sertifikat Anda.
         </div>
 
         <!-- KOTAK NOTIFIKASI ERROR AUTENTIKASI IN-MODAL (TEPAT DI ATAS INPUT EMAIL) -->
-        <div id="auth-error-msg" class="hidden bg-rose-950/80 border-2 border-rose-500 rounded-xl p-[3%] text-xs text-rose-200 font-extrabold text-center space-y-1 shadow-sm"></div>
+        <div id="auth-error-msg" class="hidden bg-rose-100 border border-rose-300 rounded-xl p-3 text-xs text-rose-800 font-extrabold text-center space-y-1 shadow-sm"></div>
 
-        <form id="form-login" onsubmit="handleAuthSubmit(event)" class="space-y-[3%] text-xs">
+        <form id="form-login" onsubmit="handleAuthSubmit(event)" class="space-y-3 text-xs">
             <div>
-                <label class="block font-bold text-slate-300 mb-1">Email Parent / Wali</label>
-                <input type="email" id="login-email" required class="w-full px-[4%] py-[3%] rounded-xl bg-[#0f172a] border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-500" placeholder="nama@email.com">
+                <label class="block font-bold text-slate-600 mb-1">Email Parent / Wali</label>
+                <input type="email" id="login-email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-none focus:border-sky-500" placeholder="nama@email.com">
             </div>
             <div>
-                <label class="block font-bold text-slate-300 mb-1">Kata Sandi (Password)</label>
-                <input type="password" id="login-pass" required class="w-full px-[4%] py-[3%] rounded-xl bg-[#0f172a] border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-500" placeholder="Minimal 6 Karakter">
+                <label class="block font-bold text-slate-600 mb-1">Kata Sandi (Password)</label>
+                <input type="password" id="login-pass" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-none focus:border-sky-500" placeholder="Minimal 6 Karakter">
             </div>
-            <button type="submit" class="w-full bg-[#00a8e8] hover:bg-sky-500 text-white font-extrabold py-[3%] rounded-xl shadow-md text-xs transition-all">
+            <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-extrabold py-3 rounded-xl shadow-md text-xs transition-all">
                 ✏️ MASUK / DAFTAR SEKARANG
             </button>
         </form>
@@ -1044,110 +1019,110 @@
 </div>
 
 <!-- PDF PRATINJAU MODAL -->
-<div id="modal-pdf" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[2%] sm:p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-2 sm:border-4 border-sky-500 w-[96%] sm:w-[90%] md:w-[75%] h-[90vh] flex flex-col shadow-2xl overflow-hidden">
-        <div class="bg-[#0f172a] px-[4%] py-[2.5%] border-b border-slate-800 flex items-center justify-between">
+<div id="modal-pdf" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+    <div class="bg-white rounded-[28px] border-4 border-sky-300 w-full max-w-3xl h-[88vh] flex flex-col shadow-2xl overflow-hidden">
+        <div class="bg-slate-50 px-5 py-3 border-b border-slate-200 flex items-center justify-between">
             <div class="flex items-center space-x-2">
-                <span class="text-rose-400 text-base sm:text-lg">📄</span>
-                <h3 id="pdf-modal-title" class="font-bold text-xs sm:text-sm text-slate-200 truncate">Pratinjau Worksheet PDF</h3>
+                <span class="text-rose-500 text-lg">📄</span>
+                <h3 id="pdf-modal-title" class="font-bold text-xs sm:text-sm text-slate-800 truncate">Pratinjau Worksheet PDF</h3>
             </div>
-            <button onclick="closeModal('modal-pdf')" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center">✕</button>
+            <button onclick="closeModal('modal-pdf')" class="w-7 h-7 rounded-full bg-slate-200 text-slate-600 font-bold text-xs flex items-center justify-center">✕</button>
         </div>
-        <div class="flex-1 bg-slate-900 p-[1%] sm:p-[2%] relative overflow-hidden">
-            <iframe id="pdf-iframe" class="w-full h-full rounded-xl border border-slate-800" src="about:blank"></iframe>
+        <div class="flex-1 bg-slate-100 p-2 relative overflow-hidden">
+            <iframe id="pdf-iframe" class="w-full h-full rounded-xl border border-slate-200" src="about:blank"></iframe>
         </div>
-        <div class="bg-[#0f172a] px-[4%] py-[2.5%] border-t border-slate-800 flex flex-wrap items-center justify-between gap-2">
-            <a id="pdf-direct-download" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-[4%] py-[2%] rounded-xl shadow">🟢 Unduh PDF Langsung</a>
-            <button onclick="closeModal('modal-pdf')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-xs px-[4%] py-[2%] rounded-xl">Tutup</button>
+        <div class="bg-white px-5 py-3 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
+            <a id="pdf-direct-download" href="#" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-4 py-2 rounded-xl shadow">🟢 Unduh PDF Langsung</a>
+            <button onclick="closeModal('modal-pdf')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs px-4 py-2 rounded-xl">Tutup</button>
         </div>
     </div>
 </div>
 
 <!-- VOUCHER / VIP ACTIVATION MODAL -->
-<div id="modal-voucher" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-[3%] sm:p-[4%] hidden">
-    <div class="bg-[#141e2d] text-white rounded-2xl sm:rounded-[28px] border-2 sm:border-4 border-amber-500 w-[94%] sm:w-[80%] md:w-[55%] p-[4%] sm:p-[6%] shadow-2xl relative space-y-[3.5%] max-h-[94vh] overflow-y-auto">
-        <button onclick="closeModal('modal-voucher')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-200 font-bold text-lg">✕</button>
+<div id="modal-voucher" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+    <div class="bg-white text-slate-900 rounded-[28px] border-4 border-amber-300 w-full max-w-md p-5 sm:p-6 shadow-2xl relative space-y-4 max-h-[92vh] overflow-y-auto">
+        <button onclick="closeModal('modal-voucher')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-lg">✕</button>
         <div class="text-center space-y-0.5">
-            <div class="text-2xl sm:text-3xl">👑</div>
-            <h3 class="font-fredoka text-lg sm:text-xl font-bold text-amber-400">Aktivasi VIP MATEMASIK</h3>
-            <p class="text-[11px] sm:text-xs text-slate-300">Pilih paket langganan via Lynk.id atau tukarkan kode voucher Anda.</p>
+            <div class="text-3xl">👑</div>
+            <h3 class="font-fredoka text-xl font-bold text-amber-800">Aktivasi VIP MATEMASIK</h3>
+            <p class="text-xs text-slate-500">Pilih paket langganan via Lynk.id atau tukarkan kode voucher Anda.</p>
         </div>
         
-        <div class="space-y-[2%] text-xs">
-            <a href="http://lynk.id/sufyan1997/qe21lvnmee6x/checkout" target="_blank" class="block p-[3%] rounded-2xl border-2 border-amber-500/50 bg-[#1c293d] hover:bg-slate-700 transition-all shadow-sm group">
+        <div class="space-y-2 text-xs">
+            <a href="http://lynk.id/sufyan1997/qe21lvnmee6x/checkout" target="_blank" class="block p-3 rounded-2xl border-2 border-amber-300 bg-amber-50/50 hover:bg-amber-100/70 transition-all shadow-sm group">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-2">
-                        <span class="text-lg sm:text-xl">⚡</span>
+                        <span class="text-xl">⚡</span>
                         <div class="text-left">
-                            <h4 class="font-bold text-white text-xs group-hover:text-amber-300 transition-colors">Paket 1 Minggu (7 Hari)</h4>
-                            <p class="text-[10px] text-slate-300 font-medium">Akses Penuh Semua Ujian & PDF</p>
+                            <h4 class="font-bold text-slate-900 text-xs group-hover:text-amber-800 transition-colors">Paket 1 Minggu (7 Hari)</h4>
+                            <p class="text-[10px] text-slate-500 font-medium">Akses Penuh Semua Ujian & PDF</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-1.5 shrink-0">
                         <div class="text-right">
-                            <span class="block font-black text-amber-400 text-xs">Rp 10rb</span>
+                            <span class="block font-black text-amber-600 text-xs">Rp 10rb</span>
                             <span class="block text-[9px] text-slate-400 line-through">Rp 20rb</span>
                         </div>
-                        <span class="bg-amber-500 text-slate-950 font-extrabold text-[10px] sm:text-[11px] px-2 py-1 rounded-lg shadow-sm">Beli →</span>
+                        <span class="bg-amber-500 text-white font-extrabold text-[11px] px-2.5 py-1 rounded-lg shadow-sm">Beli →</span>
                     </div>
                 </div>
             </a>
 
-            <a href="http://lynk.id/sufyan1997/v8lg0y5veyvj/checkout" target="_blank" class="block p-[3%] rounded-2xl border-2 border-amber-400 bg-amber-950/40 hover:bg-amber-900/60 transition-all shadow-sm group relative overflow-hidden">
-                <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">Terfavorit</span>
+            <a href="http://lynk.id/sufyan1997/v8lg0y5veyvj/checkout" target="_blank" class="block p-3 rounded-2xl border-2 border-amber-400 bg-amber-100/70 hover:bg-amber-200/70 transition-all shadow-sm group relative overflow-hidden">
+                <span class="absolute top-0 right-0 bg-amber-500 text-white text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">Terfavorit</span>
                 <div class="flex items-center justify-between pt-1">
                     <div class="flex items-center space-x-2">
-                        <span class="text-lg sm:text-xl">⭐</span>
+                        <span class="text-xl">⭐</span>
                         <div class="text-left">
-                            <h4 class="font-bold text-amber-300 text-xs group-hover:text-amber-200 transition-colors">Paket 1 Bulan (30 Hari)</h4>
-                            <p class="text-[10px] text-amber-200/80 font-medium">Akses Penuh Semua Ujian & PDF</p>
+                            <h4 class="font-bold text-amber-950 text-xs transition-colors">Paket 1 Bulan (30 Hari)</h4>
+                            <p class="text-[10px] text-amber-800/80 font-medium">Akses Penuh Semua Ujian & PDF</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-1.5 shrink-0">
                         <div class="text-right">
-                            <span class="block font-black text-amber-300 text-xs">Rp 15rb</span>
-                            <span class="block text-[9px] text-amber-400/60 line-through">Rp 30rb</span>
+                            <span class="block font-black text-amber-800 text-xs">Rp 15rb</span>
+                            <span class="block text-[9px] text-amber-600/70 line-through">Rp 30rb</span>
                         </div>
-                        <span class="bg-amber-500 text-slate-950 font-extrabold text-[10px] sm:text-[11px] px-2 py-1 rounded-lg shadow-sm">Beli →</span>
+                        <span class="bg-amber-500 text-white font-extrabold text-[11px] px-2.5 py-1 rounded-lg shadow-sm">Beli →</span>
                     </div>
                 </div>
             </a>
 
-            <a href="http://lynk.id/sufyan1997/745zdrvx8d88/checkout" target="_blank" class="block p-[3%] rounded-2xl border-2 border-indigo-500/50 bg-[#1c293d] hover:bg-slate-700 transition-all shadow-sm group relative overflow-hidden">
+            <a href="http://lynk.id/sufyan1997/745zdrvx8d88/checkout" target="_blank" class="block p-3 rounded-2xl border-2 border-indigo-200 bg-indigo-50/50 hover:bg-indigo-100/70 transition-all shadow-sm group relative overflow-hidden">
                 <span class="absolute top-0 right-0 bg-indigo-600 text-white text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">Hemat 50%</span>
                 <div class="flex items-center justify-between pt-1">
                     <div class="flex items-center space-x-2">
-                        <span class="text-lg sm:text-xl">👑</span>
+                        <span class="text-xl">👑</span>
                         <div class="text-left">
-                            <h4 class="font-bold text-white text-xs group-hover:text-indigo-300 transition-colors">Paket 1 Tahun (365 Hari)</h4>
-                            <p class="text-[10px] text-slate-300 font-medium">Masa Aktif 1 Tahun Penuh</p>
+                            <h4 class="font-bold text-indigo-950 text-xs transition-colors">Paket 1 Tahun (365 Hari)</h4>
+                            <p class="text-[10px] text-slate-500 font-medium">Masa Aktif 1 Tahun Penuh</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-1.5 shrink-0">
                         <div class="text-right">
-                            <span class="block font-black text-indigo-300 text-xs">Rp 49rb</span>
+                            <span class="block font-black text-indigo-600 text-xs">Rp 49rb</span>
                             <span class="block text-[9px] text-slate-400 line-through">Rp 100rb</span>
                         </div>
-                        <span class="bg-indigo-600 text-white font-extrabold text-[10px] sm:text-[11px] px-2 py-1 rounded-lg shadow-sm">Beli →</span>
+                        <span class="bg-indigo-600 text-white font-extrabold text-[11px] px-2.5 py-1 rounded-lg shadow-sm">Beli →</span>
                     </div>
                 </div>
             </a>
 
-            <div class="bg-[#0f172a] p-[3%] rounded-2xl border border-slate-800 space-y-2 mt-2">
-                <label class="block font-bold text-slate-300 text-[11px]">🔑 Punya Kode Voucher dari Lynk.id?</label>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-2 mt-2">
+                <label class="block font-bold text-slate-700 text-[11px]">🔑 Punya Kode Voucher dari Lynk.id?</label>
                 <div class="flex space-x-2">
-                    <input type="text" id="voucher-code-input" placeholder="XXXXX-XXXX-XXXX" class="flex-1 px-[3%] py-[2%] rounded-xl bg-[#141e2d] border border-slate-700 text-white uppercase text-xs font-mono focus:outline-none focus:border-amber-500">
-                    <button onclick="submitVoucherCode()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold px-[4%] py-[2%] rounded-xl text-xs shadow transition-all">Tukarkan</button>
+                    <input type="text" id="voucher-code-input" placeholder="XXXXX-XXXX-XXXX" class="flex-1 px-3 py-2 rounded-xl bg-white border border-slate-300 text-slate-800 uppercase text-xs font-mono focus:outline-none focus:border-amber-500">
+                    <button onclick="submitVoucherCode()" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-4 py-2 rounded-xl text-xs shadow transition-all">Tukarkan</button>
                 </div>
             </div>
 
             <div class="relative flex py-1 items-center">
-                <div class="flex-grow border-t border-slate-800"></div>
+                <div class="flex-grow border-t border-slate-200"></div>
                 <span class="flex-shrink mx-2 text-[10px] font-bold text-slate-400 uppercase">atau coba dulu</span>
-                <div class="flex-grow border-t border-slate-800"></div>
+                <div class="flex-grow border-t border-slate-200"></div>
             </div>
 
-            <button onclick="claimTrial1Hari()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-[3%] rounded-xl text-xs shadow-md transition-all">
+            <button onclick="claimTrial1Hari()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl text-xs shadow-md transition-all">
                 🎁 Klaim Trial VIP Gratis 1 Hari
             </button>
         </div>
@@ -1198,32 +1173,32 @@
 
     const THEME_COLORS = {
         penjumlahan: {
-            bgCard: 'bg-[#1c293d]',
-            border: 'border-sky-500/40',
-            btnBg: 'bg-[#00a8e8] hover:bg-sky-500',
+            bgCard: 'bg-sky-50/80',
+            border: 'border-sky-200',
+            btnBg: 'bg-sky-500 hover:bg-sky-600',
             btnText: 'text-white',
-            pdfBtnBg: 'bg-[#0f172a] hover:bg-slate-800 border-sky-500/30 text-sky-400'
+            pdfBtnBg: 'bg-white hover:bg-amber-50 border-amber-300 text-amber-900'
         },
         pengurangan: {
-            bgCard: 'bg-[#1c293d]',
-            border: 'border-pink-500/40',
-            btnBg: 'bg-pink-600 hover:bg-pink-500',
+            bgCard: 'bg-pink-50/80',
+            border: 'border-pink-200',
+            btnBg: 'bg-pink-500 hover:bg-pink-600',
             btnText: 'text-white',
-            pdfBtnBg: 'bg-[#0f172a] hover:bg-slate-800 border-pink-500/30 text-pink-400'
+            pdfBtnBg: 'bg-white hover:bg-pink-100 border-pink-300 text-pink-900'
         },
         perkalian: {
-            bgCard: 'bg-[#1c293d]',
-            border: 'border-amber-500/40',
-            btnBg: 'bg-amber-600 hover:bg-amber-500',
+            bgCard: 'bg-amber-50/80',
+            border: 'border-amber-300',
+            btnBg: 'bg-amber-500 hover:bg-amber-600',
             btnText: 'text-white',
-            pdfBtnBg: 'bg-[#0f172a] hover:bg-slate-800 border-amber-500/30 text-amber-400'
+            pdfBtnBg: 'bg-white hover:bg-amber-100 border-amber-300 text-amber-900'
         },
         pembagian: {
-            bgCard: 'bg-[#1c293d]',
-            border: 'border-emerald-500/40',
-            btnBg: 'bg-emerald-600 hover:bg-emerald-500',
+            bgCard: 'bg-emerald-50/80',
+            border: 'border-emerald-300',
+            btnBg: 'bg-emerald-500 hover:bg-emerald-600',
             btnText: 'text-white',
-            pdfBtnBg: 'bg-[#0f172a] hover:bg-slate-800 border-emerald-500/30 text-emerald-400'
+            pdfBtnBg: 'bg-white hover:bg-emerald-100 border-emerald-300 text-emerald-900'
         }
     };
 
@@ -1438,7 +1413,7 @@
         if (type === 'error') bg = 'bg-rose-600 text-white';
         if (type === 'warning') bg = 'bg-amber-500 text-slate-950 font-bold';
 
-        toast.className = `${bg} px-[3.5%] py-[2%] rounded-2xl shadow-xl text-xs font-bold transition-all transform translate-y-2 opacity-0 flex items-center space-x-2 pointer-events-auto border border-white/20 max-w-[85vw]`;
+        toast.className = `${bg} px-4 py-2 rounded-2xl shadow-xl text-xs font-bold transition-all transform translate-y-2 opacity-0 flex items-center space-x-2 pointer-events-auto border border-white/20 max-w-[85vw]`;
         toast.innerHTML = `<span>${message}</span>`;
         container.appendChild(toast);
 
@@ -1557,7 +1532,7 @@
         if (authLabel) {
             authLabel.innerHTML = loggedIn 
                 ? `<i class="fa-solid fa-right-from-bracket text-rose-300"></i><span>Keluar</span>` 
-                : `<i class="fa-solid fa-right-to-bracket text-amber-300"></i><span>Login</span>`;
+                : `<i class="fa-solid fa-key text-amber-300"></i><span>Login</span>`;
         }
 
         if (adminTriggerBtn) adminTriggerBtn.classList.toggle('hidden', !isAdmin);
@@ -1752,21 +1727,21 @@
         document.getElementById('admin-view-vouchers')?.classList.add('hidden');
         document.getElementById('admin-view-stats')?.classList.add('hidden');
 
-        document.getElementById('admin-tab-users').className = "flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-bold text-purple-300 hover:text-white";
-        document.getElementById('admin-tab-vouchers').className = "flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-bold text-purple-300 hover:text-white";
-        document.getElementById('admin-tab-stats').className = "flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-bold text-purple-300 hover:text-white";
+        document.getElementById('admin-tab-users').className = "flex-1 py-2 rounded-xl text-xs font-bold text-purple-800 hover:text-purple-950";
+        document.getElementById('admin-tab-vouchers').className = "flex-1 py-2 rounded-xl text-xs font-bold text-purple-800 hover:text-purple-950";
+        document.getElementById('admin-tab-stats').className = "flex-1 py-2 rounded-xl text-xs font-bold text-purple-800 hover:text-purple-950";
 
         if (tab === 'users') {
             document.getElementById('admin-view-users')?.classList.remove('hidden');
-            document.getElementById('admin-tab-users').className = "flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-extrabold bg-purple-600 text-white shadow-sm";
+            document.getElementById('admin-tab-users').className = "flex-1 py-2 rounded-xl text-xs font-extrabold bg-purple-600 text-white shadow-sm";
             renderAdminUsersList();
         } else if (tab === 'vouchers') {
             document.getElementById('admin-view-vouchers')?.classList.remove('hidden');
-            document.getElementById('admin-tab-vouchers').className = "flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-extrabold bg-purple-600 text-white shadow-sm";
+            document.getElementById('admin-tab-vouchers').className = "flex-1 py-2 rounded-xl text-xs font-extrabold bg-purple-600 text-white shadow-sm";
             renderAdminVouchersList();
         } else if (tab === 'stats') {
             document.getElementById('admin-view-stats')?.classList.remove('hidden');
-            document.getElementById('admin-tab-stats').className = "flex-1 py-[1.5%] rounded-xl text-[11px] sm:text-xs font-extrabold bg-purple-600 text-white shadow-sm";
+            document.getElementById('admin-tab-stats').className = "flex-1 py-2 rounded-xl text-xs font-extrabold bg-purple-600 text-white shadow-sm";
             updateAdminStats();
         }
     };
@@ -1841,20 +1816,20 @@
 
         const entries = Object.entries(APP_STATE.vouchers);
         if (entries.length === 0) {
-            listEl.innerHTML = '<p class="text-slate-400 font-bold text-center py-2">Belum ada voucher custom</p>';
+            listEl.innerHTML = '<p class="text-slate-500 font-bold text-center py-2">Belum ada voucher custom</p>';
             return;
         }
 
         entries.forEach(([code, days]) => {
             const item = document.createElement('div');
-            item.className = "bg-[#1c293d] p-[2.5%] rounded-xl border border-purple-900 flex items-center justify-between text-xs font-mono";
+            item.className = "bg-purple-50/60 p-2.5 rounded-xl border border-purple-200 flex items-center justify-between text-xs font-mono";
             const durText = days === -1 ? "Unlimited" : `${days} Hari`;
             item.innerHTML = `
                 <div>
-                    <span class="font-extrabold text-purple-200">${code}</span>
-                    <span class="text-[10px] font-sans text-purple-300 ml-2 bg-purple-900/60 px-2 py-0.5 rounded-full border border-purple-700">${durText}</span>
+                    <span class="font-extrabold text-purple-950">${code}</span>
+                    <span class="text-[10px] font-sans text-purple-800 ml-2 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-300">${durText}</span>
                 </div>
-                <button onclick="deleteAdminVoucher('${code}')" class="bg-rose-950 hover:bg-rose-900 text-rose-300 px-2 py-1 rounded-lg font-sans text-[10px] font-bold border border-rose-800">Hapus</button>
+                <button onclick="deleteAdminVoucher('${code}')" class="bg-rose-100 hover:bg-rose-200 text-rose-800 px-2 py-1 rounded-lg font-sans text-[10px] font-bold border border-rose-300">Hapus</button>
             `;
             listEl.appendChild(item);
         });
@@ -1908,29 +1883,29 @@
             const lastTopicStr = u.lastTopic || 'Belum ada riwayat';
 
             const item = document.createElement('div');
-            item.className = "bg-[#1c293d] p-[3%] rounded-xl border border-slate-700/80 space-y-[2.5%] text-xs";
+            item.className = "bg-white p-3 rounded-xl border border-slate-200 space-y-2 text-xs shadow-sm";
             item.innerHTML = `
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="font-bold text-slate-100 text-xs sm:text-sm">${u.email || 'User'}</p>
+                        <p class="font-bold text-slate-800 text-xs sm:text-sm">${u.email || 'User'}</p>
                         <p class="text-[10px] text-slate-400 font-mono">${u.uid || 'ID'}</p>
                     </div>
-                    <span class="${isVip ? 'bg-amber-950 text-amber-300 border border-amber-500/50' : 'bg-slate-800 text-slate-400'} text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+                    <span class="${isVip ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-slate-100 text-slate-600'} text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
                         ${isVip ? '👑 VIP' : 'FREE'}
                     </span>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-slate-700/60 text-[11px]">
-                    <div class="bg-[#0f172a] p-2 rounded-lg border border-slate-800">
-                        <span class="text-slate-400 font-bold block text-[10px]">🕒 Terakhir Akses Aplikasi:</span>
-                        <span class="font-semibold text-slate-200">${lastAccessStr}</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-slate-100 text-[11px]">
+                    <div class="bg-slate-50 p-2 rounded-lg border border-slate-200">
+                        <span class="text-slate-500 font-bold block text-[10px]">🕒 Terakhir Akses Aplikasi:</span>
+                        <span class="font-semibold text-slate-700">${lastAccessStr}</span>
                     </div>
-                    <div class="bg-[#0f172a] p-2 rounded-lg border border-slate-800">
-                        <span class="text-slate-400 font-bold block text-[10px]">📚 Materi Terakhir Diakses:</span>
-                        <span class="font-semibold text-purple-300">${lastTopicStr}</span>
+                    <div class="bg-purple-50 p-2 rounded-lg border border-purple-200">
+                        <span class="text-purple-700 font-bold block text-[10px]">📚 Materi Terakhir Diakses:</span>
+                        <span class="font-semibold text-purple-950">${lastTopicStr}</span>
                     </div>
                 </div>
-                <div class="flex items-center justify-between pt-2 border-t border-slate-700/60">
-                    <button onclick="adminSendPasswordResetEmail('${u.email}')" class="bg-indigo-950 hover:bg-indigo-900 text-indigo-200 text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-700 transition-all flex items-center space-x-1 shadow-sm">
+                <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                    <button onclick="adminSendPasswordResetEmail('${u.email}')" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-900 text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-200 transition-all flex items-center space-x-1 shadow-sm">
                         <span>🔑 Reset Password / Kirim Email</span>
                     </button>
                 </div>
@@ -2070,13 +2045,13 @@
         document.getElementById('motivation-marquee')?.classList.add('hidden');
 
         if (tab === 'latihan') {
-            if (btnLatihan) btnLatihan.className = "flex-1 py-[2.5%] px-[2%] rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all bg-[#2a3a52] text-sky-400 shadow-sm border border-sky-500/30";
-            if (btnUji) btnUji.className = "flex-1 py-[2.5%] px-[2%] rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all text-slate-400 hover:text-slate-200";
+            if (btnLatihan) btnLatihan.className = "flex-1 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-all bg-white text-sky-600 shadow-sm";
+            if (btnUji) btnUji.className = "flex-1 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-all text-slate-600 hover:text-slate-900";
             if (viewLatihan) viewLatihan.classList.remove('hidden');
             if (viewUji) viewUji.classList.add('hidden');
         } else {
-            if (btnUji) btnUji.className = "flex-1 py-[2.5%] px-[2%] rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all bg-[#2a3a52] text-sky-400 shadow-sm border border-sky-500/30";
-            if (btnLatihan) btnLatihan.className = "flex-1 py-[2.5%] px-[2%] rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all text-slate-400 hover:text-slate-200";
+            if (btnUji) btnUji.className = "flex-1 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-all bg-white text-amber-600 shadow-sm";
+            if (btnLatihan) btnLatihan.className = "flex-1 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-all text-slate-600 hover:text-slate-900";
             if (viewUji) viewUji.classList.remove('hidden');
             if (viewLatihan) viewLatihan.classList.add('hidden');
         }
@@ -2174,15 +2149,15 @@
             const lvl = top.id;
             const isLockedForPdf = (lvl > 1) && !isPaidVip;
             const card = document.createElement('div');
-            card.className = `${theme.bgCard} rounded-2xl p-[4%] border ${theme.border} shadow-sm space-y-[3%]`;
+            card.className = `${theme.bgCard} rounded-2xl p-4 border ${theme.border} shadow-sm space-y-3`;
 
             card.innerHTML = `
-                <h4 class="font-bold text-sm text-white">${top.name}</h4>
-                <div class="space-y-[2%]">
-                    <button onclick="startQuiz('${cat}', ${lvl})" class="w-full ${theme.btnBg} ${theme.btnText} font-bold py-[2%] rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                <h4 class="font-bold text-sm text-slate-800">${top.name}</h4>
+                <div class="space-y-2">
+                    <button onclick="startQuiz('${cat}', ${lvl})" class="w-full ${theme.btnBg} ${theme.btnText} font-bold py-2 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
                         <span>▶️ Berlatih Kuis Online →</span>
                     </button>
-                    <button onclick="openPdfModal(${lvl}, '${top.name}', ${isLockedForPdf})" class="w-full ${theme.pdfBtnBg} font-bold py-[1.5%] rounded-xl text-xs transition-all flex items-center justify-center space-x-1 border">
+                    <button onclick="openPdfModal(${lvl}, '${top.name}', ${isLockedForPdf})" class="w-full ${theme.pdfBtnBg} font-bold py-1.5 rounded-xl text-xs transition-all flex items-center justify-center space-x-1 border">
                         <span>${isLockedForPdf ? '🔒 ' : ''}Preview & Unduh PDF</span>
                     </button>
                 </div>
@@ -2259,7 +2234,7 @@
             document.getElementById('quiz-stat-correct').textContent = APP_STATE.quizStats.correct;
 
             if (feedbackBox) {
-                feedbackBox.className = "w-[85%] sm:w-[70%] mx-auto text-center font-bold text-xs sm:text-sm py-[2%] px-[4%] rounded-xl bg-emerald-950 text-emerald-300 border border-emerald-500/50 block";
+                feedbackBox.className = "max-w-xs mx-auto text-center font-bold text-xs sm:text-sm py-2 px-4 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 block";
                 feedbackBox.textContent = "🎉 Jawaban Benar!";
             }
             playCorrectSfx();
@@ -2272,7 +2247,7 @@
             document.getElementById('quiz-stat-wrong').textContent = APP_STATE.quizStats.wrong;
 
             if (feedbackBox) {
-                feedbackBox.className = "w-[85%] sm:w-[70%] mx-auto text-center font-bold text-xs sm:text-sm py-[2%] px-[4%] rounded-xl bg-rose-950 text-rose-300 border border-rose-500/50 block";
+                feedbackBox.className = "max-w-xs mx-auto text-center font-bold text-xs sm:text-sm py-2 px-4 rounded-xl bg-rose-100 text-rose-800 border border-rose-300 block";
                 feedbackBox.textContent = `❌ Belum Tepat! Jawaban: ${APP_STATE.currentQuestion.answer}`;
             }
             playWrongSfx();
@@ -2311,40 +2286,40 @@
             let btnHtml = '';
 
             if (passedThis) {
-                badgeHtml = `<span class="bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">✅ LULUS</span>`;
+                badgeHtml = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">✅ LULUS</span>`;
             } else if (!unlocked) {
-                badgeHtml = `<span class="bg-rose-950 text-rose-300 border border-rose-500/40 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">🔒 TERKUNCI</span>`;
+                badgeHtml = `<span class="bg-slate-200 text-slate-600 border border-slate-300 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">🔒 TERKUNCI</span>`;
             } else if (lvlNum > 1 && !isVip) {
-                badgeHtml = `<span class="bg-amber-950 text-amber-300 border border-amber-500/40 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">👑 KHUSUS VIP</span>`;
+                badgeHtml = `<span class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">👑 KHUSUS VIP</span>`;
             } else {
-                badgeHtml = `<span class="bg-sky-950 text-sky-300 border border-sky-500/40 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">⚡ SIAP DIUJI</span>`;
+                badgeHtml = `<span class="bg-sky-100 text-sky-800 border border-sky-300 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">⚡ SIAP DIUJI</span>`;
             }
 
             if (!unlocked) {
                 btnHtml = `
-                    <button onclick="handleUjiLevelClick('${cat}', ${lvlNum})" class="w-full bg-slate-800 text-slate-400 font-bold py-[2%] rounded-xl text-xs transition-all flex items-center justify-center space-x-1">
+                    <button onclick="handleUjiLevelClick('${cat}', ${lvlNum})" class="w-full bg-slate-200 text-slate-500 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center space-x-1">
                         <span>🔒 Wajib Lulus Level ${lvlNum - 1} Terlebih Dahulu</span>
                     </button>
                 `;
             } else if (lvlNum > 1 && !isVip) {
                 btnHtml = `
-                    <button onclick="handleUjiLevelClick('${cat}', ${lvlNum})" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-[2%] rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                    <button onclick="handleUjiLevelClick('${cat}', ${lvlNum})" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
                         <span>👑 Buka Uji Level ${lvlNum} (Login & VIP) →</span>
                     </button>
                 `;
             } else {
                 btnHtml = `
-                    <button onclick="handleUjiLevelClick('${cat}', ${lvlNum})" class="w-full ${theme.btnBg} ${theme.btnText} font-bold py-[2%] rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
+                    <button onclick="handleUjiLevelClick('${cat}', ${lvlNum})" class="w-full ${theme.btnBg} ${theme.btnText} font-bold py-2 rounded-xl text-xs shadow transition-all flex items-center justify-center space-x-1">
                         <span>🚀 Mulai Uji Kelancaran (20 Soal) →</span>
                     </button>
                 `;
             }
 
             const card = document.createElement('div');
-            card.className = `${theme.bgCard} ${theme.border} rounded-2xl p-[4%] border shadow-sm space-y-[3%]`;
+            card.className = `${theme.bgCard} ${theme.border} rounded-2xl p-4 border shadow-sm space-y-3`;
             card.innerHTML = `
                 <div class="flex items-center justify-between">
-                    <h4 class="font-bold text-sm text-white">${top.name}</h4>
+                    <h4 class="font-bold text-sm text-slate-800">${top.name}</h4>
                     ${badgeHtml}
                 </div>
                 ${btnHtml}
@@ -2498,7 +2473,7 @@
         if (isPassed) {
             if (titleEl) titleEl.textContent = "🎉 SELAMAT! KAMU LULUS UJI KELANCARAN!";
             if (predicateEl) {
-                predicateEl.className = "text-xs font-bold py-[2%] px-[4%] rounded-xl bg-emerald-950 text-emerald-300 border border-emerald-500/50";
+                predicateEl.className = "text-xs font-bold py-2 px-4 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300";
                 predicateEl.textContent = `SANGAT LANCAR! (Skor: ${score}, Rata-rata: ${avgTime}s)`;
             }
             if (descEl) descEl.textContent = "Luar biasa! Level berikutnya telah terbuka!";
@@ -2515,7 +2490,7 @@
         } else {
             if (titleEl) titleEl.textContent = "💪 BELUM LULUS, AYO COBA LAGI!";
             if (predicateEl) {
-                predicateEl.className = "text-xs font-bold py-[2%] px-[4%] rounded-xl bg-rose-950 text-rose-300 border border-rose-500/50";
+                predicateEl.className = "text-xs font-bold py-2 px-4 rounded-xl bg-amber-50 text-amber-800 border border-amber-200";
                 predicateEl.textContent = `PERLU LATIHAN (Skor: ${score}, Rata-rata: ${avgTime}s)`;
             }
             if (descEl) descEl.textContent = "Syarat Lulus: Skor Minimal 90 dan Rata-rata Waktu < 10 detik/soal.";
@@ -2601,18 +2576,18 @@
             if (isPassedAll) passedCategoriesCount++;
 
             const card = document.createElement('div');
-            card.className = "bg-[#1c293d] p-[4%] rounded-2xl border border-slate-700 space-y-[2%] flex flex-col justify-between";
+            card.className = "bg-white p-4 rounded-2xl border border-slate-200 space-y-2 flex flex-col justify-between shadow-sm";
             card.innerHTML = `
                 <div>
                     <div class="flex items-center justify-between">
-                        <h5 class="font-bold text-xs text-white">${c.title}</h5>
-                        <span class="${isPassedAll ? 'bg-emerald-950 text-emerald-300 border border-emerald-500/40' : 'bg-slate-800 text-slate-400'} text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
+                        <h5 class="font-bold text-xs text-slate-800">${c.title}</h5>
+                        <span class="${isPassedAll ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-600'} text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
                             ${isPassedAll ? '✅ Lulus' : `${passedLvls.length}/${c.total} Level`}
                         </span>
                     </div>
-                    <p class="text-[10px] text-slate-300 mt-1">${c.desc}</p>
+                    <p class="text-[10px] text-slate-500 mt-1">${c.desc}</p>
                 </div>
-                <button onclick="viewCertificate('${c.id}')" ${!isPassedAll ? 'disabled' : ''} class="w-full ${isPassedAll ? 'bg-amber-500 hover:bg-amber-600 text-slate-950' : 'bg-slate-800 text-slate-500 cursor-not-allowed'} font-extrabold py-[1.5%] rounded-xl text-[11px] transition-all shadow-sm">
+                <button onclick="viewCertificate('${c.id}')" ${!isPassedAll ? 'disabled' : ''} class="w-full ${isPassedAll ? 'bg-amber-400 hover:bg-amber-500 text-slate-900' : 'bg-slate-200 text-slate-400 cursor-not-allowed'} font-extrabold py-1.5 rounded-xl text-[11px] transition-all shadow-sm">
                     ${isPassedAll ? '📜 Lihat & Cetak Sertifikat' : '🔒 Belum Lulus Ujian'}
                 </button>
             `;
@@ -2624,12 +2599,12 @@
         const isGrandPassed = (passedCategoriesCount >= 4);
 
         if (grandBadge) {
-            grandBadge.className = isGrandPassed ? "bg-emerald-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase" : "bg-amber-900 text-amber-200 text-[10px] font-black px-2.5 py-1 rounded-full uppercase";
+            grandBadge.className = isGrandPassed ? "bg-emerald-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase" : "bg-amber-200 text-amber-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase";
             grandBadge.textContent = isGrandPassed ? "👑 MASTER LULUS" : "🔒 Terkunci";
         }
         if (grandBtn) {
             grandBtn.disabled = !isGrandPassed;
-            grandBtn.className = isGrandPassed ? "w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold py-[2.5%] rounded-xl text-xs shadow-md" : "w-full bg-slate-800 text-slate-500 font-extrabold py-[2.5%] rounded-xl text-xs shadow-sm cursor-not-allowed";
+            grandBtn.className = isGrandPassed ? "w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold py-2.5 rounded-xl text-xs shadow-md" : "w-full bg-slate-200 text-slate-400 font-extrabold py-2.5 rounded-xl text-xs shadow-sm cursor-not-allowed";
             grandBtn.textContent = isGrandPassed ? "📜 Buka Sertifikat Master Keseluruhan →" : "🔒 Belum Memenuhi Syarat";
         }
     }
